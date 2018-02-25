@@ -1,11 +1,11 @@
 
-##ROCO224 Introduction to Robotics
+## ROCO224 Introduction to Robotics
 
-#*Programming Industrial Robots*
+# *Programming Industrial Robots*
 
 Programming industrial robots(approximately 1000 words)
 
-##*Introduction*
+## *Introduction*
 
 Description of robot
 
@@ -13,13 +13,13 @@ Description of task
 
 Description of software used
 
-#*Relevance*
+# *Relevance*
 
 Brief comparison of simulated and real robot
 
 Brief comparison with other robot simulation software
 
-#*Development*
+# *Development*
 
 Describe how you worked as a team to solve the task
 
@@ -27,7 +27,7 @@ Describe briefly problems encountered
 
 Describe briefly lessons learned
 
-#*Results*
+# *Results*
 
 Show how well your solution worked
 
@@ -35,7 +35,7 @@ Show any errors in executing the task
 
 Include figures with images/drawings etc
 
-#*Conclusion*
+# *Conclusion*
 
 Briefly conclude this part of the 
 coursework
