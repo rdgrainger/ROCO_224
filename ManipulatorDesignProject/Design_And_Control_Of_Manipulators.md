@@ -1,9 +1,9 @@
 
-#*Design and Control of Manipulators*
+# *Design and Control of Manipulators*
 
 Design and control of manipulators (approximately 3000 words)
 
-##*Introduction*
+## *Introduction*
 
 Description of hardware 
 
@@ -11,15 +11,15 @@ Description of task
 
 An overview of your approach to the problem
 
-##*Design Process*
+## *Design Process*
 
 What design iterations have you gone through?
 
 Who worked on what and when?
 
 What problems did you encounter, and how did you solve them?
-•
-#*Implementation*
+
+## *Implementation*
 
 Describe the final implementation of your manipulator
 
@@ -30,7 +30,7 @@ Include your solutions for kinematics, motion planning etc.
 
 Be brief, include support material in appendices, if need be
 
-#*Experiments* 
+##*Experiments* 
 
 What testing have you performed of the robot (or subsystems)
 
@@ -38,6 +38,6 @@ How well have you been able to perform the goal task?
 
 Include a Method, Results, and Discussion sub-section for each experiment
 
-#*Conclusion*
+## *Conclusion*
 
 Briefly conclude this part of the coursework
