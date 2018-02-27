@@ -63,7 +63,7 @@ _|----------------------------------------------------|_
 
 <br><br><br><br>
 
-### Libre writer file:
+**Libre writer file:**
 ![Jack's Torque file](https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/JackGell_torque%20equation_%2090degres.docx)
 
 ## *Experiments* 
