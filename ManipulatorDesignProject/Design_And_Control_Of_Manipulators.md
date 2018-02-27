@@ -12,6 +12,9 @@ Description of task
 An overview of your approach to the problem
 
 ## *Design Process*
+word document for torque equation at 90 degrees. how to calculate work for the servo which will be under the most
+stress. The second page account for when not at 90 degrees.
+https://mega.nz/#!yeAlXQAD!9WT7682P0vOglwi2xwGGpro0vAdTxhgiVgoNCQij1Kc
 
 What design iterations have you gone through?
 
