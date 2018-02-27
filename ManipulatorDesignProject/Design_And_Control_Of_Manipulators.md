@@ -11,7 +11,7 @@ For video:
 [![](picture link)](video link)
 
 
-|--------------------------------------------------------------------------------------------------------------------------------------|
+#### |--------------------------------------------------------------------------------------------------------------------------------------|
 
 
 
@@ -52,16 +52,15 @@ _|-------------------------------------------------|_
 
 ### Include figures with images/drawings etc
 
-Rough workings for moments:  
-<img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20drawing%20at%200%20degrees%20redundant.jpg?raw=true" height="25%" width="25%"/><img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20calc%200%20degrees%20redundant.jpg?raw=true" height="25%" width="25%"/><img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20about%20servo%20B%20at%2090%20degrees%20redundant.jpg?raw=true" height="25%" width="25%"/>
-
-Libre writer file:
-![Jack's Torque file](https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/JackGell_torque%20equation_%2090degres.docx)
-
-
 ### Include your solutions for kinematics, motion planning etc.
 
 ### Be brief, include support material in appendices, if need be
+
+				Rough workings for moments:  
+<img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20drawing%20at%200%20degrees%20redundant.jpg?raw=true" height="30%" width="30%"/><img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20calc%200%20degrees%20redundant.jpg?raw=true" height="30%" width="30%"/><img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20about%20servo%20B%20at%2090%20degrees%20redundant.jpg?raw=true" height="30%" width="30%"/>
+
+Libre writer file:
+![Jack's Torque file](https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/JackGell_torque%20equation_%2090degres.docx)
 
 ## *Experiments* 
 
