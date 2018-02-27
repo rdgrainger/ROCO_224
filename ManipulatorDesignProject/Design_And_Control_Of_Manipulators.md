@@ -1,12 +1,13 @@
-### |---------These are some useful HTML commands that we can use while we are writting this report and delete before submission-----------|
+#### |---------These are some useful HTML commands that we can use while we are writting this report and delete before submission-----------|
+_These commands are only visible in the raw format or in gedit_
 
-This command puts two pictures side by side, change percentage for size but always keep height and width the same:
+This command puts two pictures side by side, change percentage for size but always keep height and width the same:  
 <img src="" height="0%" width="0%"/><img src="" height="0%" width="0%"/>
 
-For single image:
+For single image:  
 ![name](image link)
 
-For video:
+For video:  
 [![](picture link)](video link)
 
 
@@ -51,7 +52,7 @@ _|-------------------------------------------------|_
 
 ### Include figures with images/drawings etc
 
-Rough workings for moments:
+Rough workings for moments:  
 <img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20drawing%20at%200%20degrees%20redundant.jpg?raw=true" height="25%" width="25%"/><img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20calc%200%20degrees%20redundant.jpg?raw=true" height="25%" width="25%"/><img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20about%20servo%20B%20at%2090%20degrees%20redundant.jpg?raw=true" height="25%" width="25%"/>
 
 Libre writer file:
