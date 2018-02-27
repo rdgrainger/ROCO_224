@@ -15,6 +15,7 @@ An overview of your approach to the problem
 word document for torque equation at 90 degrees. how to calculate work for the servo which will be under the most
 stress.
 https://mega.nz/#!WG53FCKT!bKtZSJYDo4Ad_uUJ6LyBeFgj6cRM2loTrdMJKVe7u3M
+
 What design iterations have you gone through?
 
 Who worked on what and when?
