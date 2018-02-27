@@ -1,4 +1,4 @@
-#### |---------These are some useful HTML commands that we can use while we are writting this report and delete before submission-----------|
+#### |---------These are some useful HTML/Markdown commands that we can use while we are writting this report and delete before submission-----------|
 _These commands are only visible in the raw format or in gedit_
 
 This command puts two pictures side by side, change percentage for size but always keep height and width the same:  
@@ -10,6 +10,8 @@ For single image:
 For video:  
 [![](picture link)](video link)
 
+Use this to add blank space if required: (each <br> adds one line of space use as many as like)
+<br><br>
 
 #### |--------------------------------------------------------------------------------------------------------------------------------------|
 
@@ -38,7 +40,7 @@ _|------------ Final maths for moments ------------|_
 word document for torque equation at 90 degrees. how to calculate work for the servo which will be under the most
 stress. The second page account for when not at 90 degrees.
 
-_|-------------------------------------------------|_
+_|----------------------------------------------------|_
 
 ### What design iterations have you gone through?
 
@@ -56,10 +58,12 @@ _|-------------------------------------------------|_
 
 ### Be brief, include support material in appendices, if need be
 
-				Rough workings for moments:  
-<img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20drawing%20at%200%20degrees%20redundant.jpg?raw=true" height="30%" width="30%"/><img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20calc%200%20degrees%20redundant.jpg?raw=true" height="30%" width="30%"/><img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20about%20servo%20B%20at%2090%20degrees%20redundant.jpg?raw=true" height="30%" width="30%"/>
+					Rough workings for moments:  
+<img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20drawing%20at%200%20degrees%20redundant.jpg?raw=true" height="30%" width="30%"/><img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20calc%200%20degrees%20redundant.jpg?raw=true" height="30%" width="30%"/><img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20about%20servo%20B%20at%2090%20degrees%20redundant.jpg?raw=true" height="35%" width="35%"/>
 
-Libre writer file:
+<br>
+
+**Libre writer file:**
 ![Jack's Torque file](https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/JackGell_torque%20equation_%2090degres.docx)
 
 ## *Experiments* 
