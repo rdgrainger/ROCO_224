@@ -22,31 +22,31 @@ The applications of the RV-SD/RV-2AJ series range from straight forward pick and
 The specification of the RV-2SD and RV-2AJ series are as follows...
 
  
-### *Degree of Freedom*
+#### *Degree of Freedom*
 
 * 6 (RV-2SD) and 5 (RV-2Aj)
 
-### *Installation posture*
+#### *Installation posture*
 
 * On floor hanging
 
-### *Structure*
+#### *Structure*
 
 * Vertical, multiple-joint type
 
-### *Drive system*
+#### *Drive system*
 
 * AC Servo motor
 
-### *Position detection method*
+#### *Position detection method*
 
 * J1 to J3 : 50W brake, J4,J6 : no brake, J5 :15W with brake
 
-### *Type*
+#### *Type*
 
 * Absolute Encoder
 
-### *Arm Length* 
+#### *Arm Length* 
 
 * (RV-2AJ)
 
@@ -61,7 +61,7 @@ The specification of the RV-2SD and RV-2AJ series are as follows...
 1.  Upper Arm - 230 mm 
 1.  Forearm - 270 mm   
 
-### *Motion Range (Degree)*
+#### *Motion Range (Degree)*
  
 J1 -	300 (-150 to +150)(RV-2AJ)
 	480 (-240 to +240)(RV-SD)
@@ -81,7 +81,7 @@ J5 - 	180 (-90 to +90)(RV-2AJ)
 J6 - 	400 (-200 to +200)(RV-2AJ)
 	720 (-360 to +360)(RV-SD)
 
-### *Speed Of Motion Degree/s*
+#### *Speed Of Motion Degree/s*
 
 J1 - 	180(RV-2AJ)
 	225(RV-SD)
@@ -101,13 +101,13 @@ J6 - 	210(RV-2AJ)
 	720(RV-SD)
 	
 
-### *Maximum Resultant Velocity*
+#### *Maximum Resultant Velocity*
 
 * Approx. 4400mm/s (RV-SD)
 
 * Approx. 2100mm/s (RV-2AJ)
 
-### *Load Capacity*
+#### *Load Capacity*
 
 * Maximum - 3 kg (RV-SD) and 2 kg (RV-2AJ) 
 
@@ -115,32 +115,32 @@ J6 - 	210(RV-2AJ)
 
 Nb - The maximum load capacity is the mass with the flange posture facing downword at the ±10 degree limit.
 
-### *Position Repeatability* - ±0.02mm
+#### *Position Repeatability* - ±0.02mm
 
-### *Ambient Temperature* - 0 to 40ºC
+#### *Ambient Temperature* - 0 to 40ºC
 
-### *Mass*
+#### *Mass*
 
 Approx. 19 kg (RV-SD) and Approx. 17 kg (RV-2AJ)
 
-### *Allowable Moment*
+#### *Allowable Moment*
 
 J4 4.17 Nm (RV-SD only) 
 J5 4.17 Nm (RV-SD) and 2.16 Nm (RV-2AJ)
 J6 2.45 Nm (RV-SD) and 1.10 Nm (RV-2AJ)
 
-### *Allowable Inertia*
+#### *Allowable Inertia*
 
 J4 4.86 × 10^-2 kg m2 (RV-SD only)
 J5 4.86 × 10^-2 kg m2 (RV-SD) and 3.24 × 10^-2 kg m2 (RV-2AJ)
 J6 4 × 10^-2 kg m2 (RV-SD) and 8.43 × 10^-3 kg m2 (RV-2AJ)
 
-### *Arm Reachable Radius (front p-axis center point)*
+#### *Arm Reachable Radius (front p-axis center point)*
 
 504 mm (RV-SD) and 410 mm (RV-2AJ)
 
 
-### *Tool Wiring*
+#### *Tool Wiring*
 
 (RV-2AJ) Four input signals (Hand section),Four output signals (Base section),Motorized hand output (Hand section)
 
@@ -148,15 +148,15 @@ Nb - When using the 4-point hand output, the pneumatic hand interface (option) i
 
 (RV-SD) Hand: 4 input points / 0 output points
 
-### *Tool Pneumatic Pipes*
+#### *Tool Pneumatic Pipes*
 
 4 × 4 (Base to hand section)
 
-### *Supply Pressure*
+#### *Supply Pressure*
 
 0.5 MPa (±10%) 
 
-### *Protection Specification*
+#### *Protection Specification*
 
 IP30
 
