@@ -115,9 +115,13 @@ J6 - 	210(RV-2AJ)
 
 Nb - The maximum load capacity is the mass with the flange posture facing downword at the ±10 degree limit.
 
-#### *Position Repeatability* - ±0.02mm
+#### *Position Repeatability*
 
-#### *Ambient Temperature* - 0 to 40ºC
+±0.02mm
+
+#### *Ambient Temperature*
+
+0 to 40ºC
 
 #### *Mass*
 
