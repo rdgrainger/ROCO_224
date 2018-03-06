@@ -22,21 +22,33 @@ The applications of the RV-SD/RV-2AJ series range from straight forward pick and
 The specification of the RV-2SD and RV-2AJ series are as follows...
 
  
-### *Degree of Freedom* - 6 (RV-2SD) and 5 (RV-2Aj)
+### *Degree of Freedom*
 
-### *Installation posture* - On floor hanging
+* 6 (RV-2SD) and 5 (RV-2Aj)
 
-### *Structure* - Vertical, multiple-joint type
+### *Installation posture*
 
-### *Drive system* - AC Servo motor
+* On floor hanging
 
-### *Position detection method* - J1 to J3 : 50W brake, J4,J6 : no brake, J5 :15W with brake
+### *Structure*
 
-### *Type* - Absolute Encoder
+* Vertical, multiple-joint type
+
+### *Drive system*
+
+* AC Servo motor
+
+### *Position detection method*
+
+* J1 to J3 : 50W brake, J4,J6 : no brake, J5 :15W with brake
+
+### *Type*
+
+* Absolute Encoder
 
 ### *Arm Length* 
 
-(RV-2AJ)
+* (RV-2AJ)
 
 1. Shoulder shift - 0
 1. Upper Arm - 250mm
@@ -44,7 +56,7 @@ The specification of the RV-2SD and RV-2AJ series are as follows...
 1. 0mm
 1. Wrist Length - 72mm
 
-(RV-SD)
+* (RV-SD)
 
 1.  Upper Arm - 230 mm 
 1.  Forearm - 270 mm   
@@ -91,7 +103,9 @@ J6 - 	210(RV-2AJ)
 
 ### *Maximum Resultant Velocity*
 
-Approx. 4400mm/s (RV-SD) and Approx. 2100mm/s (RV-2AJ)
+* Approx. 4400mm/s (RV-SD)
+
+* Approx. 2100mm/s (RV-2AJ)
 
 ### *Load Capacity*
 
