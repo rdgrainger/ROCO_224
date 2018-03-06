@@ -173,9 +173,9 @@ Water falling as a spray at any angle up to 60° from the vertical shall have no
  
 
 http://www.dsmt.com/resources/ip-rating-chart/
-----------------------------------------------------------------------------------------
 
-Description of software used
+
+---------------------------------------------Description of software used---------------------------------
 
 The software that that we will be using, for the task previously mentioned, is Visual Components Premium 4.0.
 
@@ -183,7 +183,6 @@ This is a manufacturing simulation package that enables us to 'virtualize'a fact
 
 https://www.visualcomponents.com/
 
----------------------------------------------------------------------------------------------
 # *Relevance*
 
 Brief comparison of simulated and real robot
