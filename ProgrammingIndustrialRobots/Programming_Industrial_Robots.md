@@ -166,7 +166,7 @@ IP30
 
 "Ingress Protection" 
 
-Solids Protecion - (2.5mm) 
+Solids Protection - (2.5mm) 
 
 Tools, thick wires, etc.
 
