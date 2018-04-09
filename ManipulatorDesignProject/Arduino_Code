@@ -1,1 +1,42 @@
+Function that will use the vt100 escape sequnces to change the colour of the text writing that is put onto a terminal. If you
+call this function use a single argument from 1 - 7 and text colour will change respectivly to what is commeted by the case condition.
 
+```
+void text_colour(int colour){
+  
+  switch(colour){
+    case(0):  //black
+      Serial.print("\x1b[30m");
+      break;
+      
+    case(1):  //red
+      Serial.print("\x1b[31m");
+      break;
+      
+    case(2):  //green
+      Serial.print("\x1b[32m");
+      break;
+      
+    case(3):  //yellow
+      Serial.print("\x1b[33m");
+      break;
+      
+    case(4): //blue
+      Serial.print("\x1b[34m");
+      break;
+
+    case(5): //magneta
+      Serial.print("\x1b[35m");
+      break;
+      
+    case(6):  //cyan
+      Serial.print("\x1b[36m");
+      break;
+
+    case(7):  //white
+      Serial.print("\x1b[37m");
+      break;
+  }
+}
+
+```
