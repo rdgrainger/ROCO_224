@@ -1,3 +1,41 @@
+The tasks for the arduino is to display information to a terminal, Read positions of the dynamixels, control the stepper motor
+at the base of the arm and operate the end effector. While also looking presentable and easy to understand for any user.
+
+Initially i started with a arduino uno which did not last long as the memory space was to small and causing instability issues.
+So the Uno has been upgraded to a Arduino mega 2560 with 16MHz clock speed (8MHz for uno). I was also able to increase the baud rate
+to 57600 up from 9600. I did test with a baud of 115200 but errors where occoring fairly frequently and i felt
+it was to unreliable for presentability.
+
+the terminal is going to be initialized using the vt100 esc sequences to position the terminal cursor, change text colours
+and afew other minor things. The code will be stuck in the initialize loop untill the terminal is detected by the arduino,
+Then the basic borders for the terminal setup will be printed.
+
+For the End Effector we will be able to control both of the servos by interacting with the terminal. One servo will
+control rotation so there will be two control switches to move clockwise and counter clockwise. The position of this
+servo will be fed back to the terminal and displayed and degrees. The second servo will open and close the gripper
+and will feed back to the terminal whether the gripper is open or closed. I did open a 9g servo and solder a wire
+into its internal potentiometer so that could have feedback. and with this feedback i could determine the percentage of
+how open the gripper was and the width of the object which was being grabbed. Unfortunatly they are very fragile and
+the rotation became unreliable after reassembling.
+
+Data regarding the dynamixels will also be displayed. As listed on the the RX-28 data sheet that the servos are capable of feeding
+back the load of which they are under. Their is also the capability to feed more data like rotation postion and temperature but
+for this project we are more concerned about the load the dynamixels are going to be under.
+
+As the Load for the dynamixels is large we are trying to double up as many dynamixels as possible. One way to do this was
+to have a stepper motor on the base of the arm where it meets the frame. however the position of which the arm is
+going to be has to be sent down two lines. One being to the dynamixels and the other being to the stepper via the arduino
+therefore the arduino is going to have to save its current position and calculate where to go from there. This
+increases room for error and also increases latency. A good method to counter latency is rapid polling and to avoid using
+delays where possible.
+
+
+Below I am going to list each function or block of code and give a breif explination of how they work and
+how they are going to be used. At the very bottom of the page there is a full summarization of the code
+amalgumated into their main sketch.
+
+
+
 Function that will use the vt100 escape sequnces to change the colour of the text writing that is put onto a terminal. If you
 call this function use a single argument from 1 - 7 and text colour will change respectivly to what is commeted by the case condition.
 
