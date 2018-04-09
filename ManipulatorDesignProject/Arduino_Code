@@ -1,7 +1,8 @@
 Function that will use the vt100 escape sequnces to change the colour of the text writing that is put onto a terminal. If you
 call this function use a single argument from 1 - 7 and text colour will change respectivly to what is commeted by the case condition.
 
-```
+   ```
+   
 void text_colour(int colour){
   
   switch(colour){
@@ -39,4 +40,4 @@ void text_colour(int colour){
   }
 }
 
-```
+   ```
