@@ -29,6 +29,8 @@ therefore the arduino is going to have to save its current position and calculat
 increases room for error and also increases latency. A good method to counter latency is rapid polling and to avoid using
 delays where possible.
 
+For each dynamixel the X, Y and Z positions in space are going to be given to the arduino and displayed to the right
+hand side of the termianl.
 
 Below I am going to list each function or block of code and give a breif explination of how they work and
 how they are going to be used. At the very bottom of the page there is a full summarization of the code
