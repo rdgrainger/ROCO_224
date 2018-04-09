@@ -1,7 +1,7 @@
 Function that will use the vt100 escape sequnces to change the colour of the text writing that is put onto a terminal. If you
 call this function use a single argument from 1 - 7 and text colour will change respectivly to what is commeted by the case condition.
 
-   ```
+```c
    
 void text_colour(int colour){
   
@@ -40,4 +40,36 @@ void text_colour(int colour){
   }
 }
 
-   ```
+```
+
+Function also using the vt100 esc codes, this function take two arguments and (for selecting a row and a coloumn) and moves the cursor
+to that location on the terminal without effecting any other text that the cursor is moving over. it does this by looping through the
+rows one space a time. Then the cursor will move across the by looping through the columns.
+
+To break this down into three sequences. Move cursor home, move cursor down x times and move cursor right x times.
+
+```c
+
+void move_cursor(int row, int col)
+{
+  int i;          //return home
+  Serial.print('\x1b');   // ESC
+  Serial.print('[');    
+  Serial.print('H');
+  for(i=0; i<row; i++)
+  {
+  Serial.print('\x1b');   // ESC
+  Serial.print('[');    //move x amount of rows
+  Serial.print(1);
+  Serial.print('B');
+  }
+  for(i=0; i<col; i++)
+  {
+  Serial.print('\x1b');   // ESC
+  Serial.print('[');    //move x amount of columns
+  Serial.print(1);
+  Serial.print('C');
+  }
+}
+
+```
