@@ -125,6 +125,9 @@ All of the borders are printed in magneta and variables being printed in cyan. Y
 to display static text and names. Although variables are generally printed in cyan for the x,y and z
 coordinates i have chosen to print Red for X, green for Y, and blue for the Z coordinate.
 
+The comments (numbers) above and to the right of the of the first block within this function is
+so it is easy to refrence a target postion on the terminal for the move cursor function.
+
 
 ```c
 
