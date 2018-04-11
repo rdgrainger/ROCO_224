@@ -260,4 +260,69 @@ Serial.print("End Effector");
 
 }
 
+Another serial print Function within the initialisation which pushes
+text to the monitor most of this code will not be changed. All that is
+to be changed is where the variables are printed. when data comes in
+these characters will be printed over with current data being fed from
+the dynamixels about how much load they are under at the current point in
+time
+
+```c
+
+void Print_Load(){
+
+  text_colour(3);
+  move_cursor(1, 57);
+  Serial.print("Load on servos");
+
+  text_colour(3);
+  move_cursor(3, 55);
+  Serial.print("Servo 1: ");
+  text_colour(6);
+  Serial.print(0.000);
+  Serial.print(" N/m  ");
+
+  text_colour(3);
+  move_cursor(5, 55);
+  Serial.print("Servo 2: ");
+  text_colour(6);
+  Serial.print(0.000);
+  Serial.print(" N/m  ");
+
+  text_colour(3);
+  move_cursor(7, 55);
+  Serial.print("Servo 3: ");
+  text_colour(6);
+  Serial.print(0.000);
+  Serial.print(" N/m  ");
+
+  text_colour(3);
+  move_cursor(9, 55);
+  Serial.print("Servo 4: ");
+  text_colour(6);
+  Serial.print(0.000);
+  Serial.print(" N/m  ");
+
+  text_colour(3);
+  move_cursor(11, 55);
+  Serial.print("Servo 5: ");
+  text_colour(6);
+  Serial.print(0.000);
+  Serial.print(" N/m  ");
+
+  text_colour(3);
+  move_cursor(13, 55);
+  Serial.print("Servo 6: ");
+  text_colour(6);
+  Serial.print(0.000);
+  Serial.print(" N/m  ");
+ 
+}
+
+
 ```
+
+
+
+
+
