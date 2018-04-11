@@ -330,6 +330,57 @@ void Print_Load(){
 
 
 
+Same sort of function as the previous to be run with in the init loop. This time to
+display the proximty sensor panels of the terminal.
+
+
+
+```c
+
+void Print_Proximity(){
+
+  text_colour(3);
+  move_cursor(1, 34);
+  Serial.print("proximity sensors");
+
+  text_colour(3);
+  move_cursor(3, 35);
+  Serial.print("Sensor 1: ");
+  text_colour(6);
+  Serial.print(00);
+  Serial.print("  cm ");
+
+  text_colour(3);
+  move_cursor(5, 35);
+  Serial.print("Sensor 2: ");
+  text_colour(6);
+  Serial.print(00);
+  Serial.print("  cm ");
+
+  text_colour(3);
+  move_cursor(7, 35);
+  Serial.print("Sensor 3: ");
+  text_colour(6);
+  Serial.print(00);
+  Serial.print("  cm ");
+
+  text_colour(3);
+  move_cursor(9, 35);
+  Serial.print("Sensor 4: ");
+  text_colour(6);
+  Serial.print(00);
+  Serial.print("  cm ");
+
+  text_colour(3);
+  move_cursor(11, 35);
+  Serial.print("Sensor 5: ");
+  text_colour(6);
+  Serial.print(00);
+  Serial.print("  cm ");
+}
+
+```
+
 
 
 
