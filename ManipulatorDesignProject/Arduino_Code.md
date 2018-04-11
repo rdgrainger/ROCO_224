@@ -262,12 +262,16 @@ Serial.print("End Effector");
 
 ```
 
+
+
 Another serial print Function within the initialisation which pushes
 text to the monitor most of this code will not be changed. All that is
 to be changed is where the variables are printed. when data comes in
 these characters will be printed over with current data being fed from
 the dynamixels about how much load they are under at the current point in
 time
+
+
 
 ```c
 
