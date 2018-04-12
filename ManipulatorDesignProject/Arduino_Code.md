@@ -382,6 +382,119 @@ void Print_Proximity(){
 ```
 
 
+There are 8 diffrent combinations of setting the magnetic direction of this four phase motor.
+This function chooses which of these coils will be activited. the switch state ment for steps
+will be a value from 0-7 and will ascend or decend respectivly to the direct the motor will
+will be rotating in. thefore if you put a in put value to the function it will take that many steps
+in the direction of which it is asking.
+
+This Stepper has a gear ratio of 64 and a stride angle of 5.625 degrees. For a full revoluion we can use this equation.
+
+![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30656934_545292452552383_6157043265399106207_n.jpg?_nc_cat=0&oh=16d0d8dd009644d46dec0f4491f9af12&oe=5B5960E3 "Logo Title Text 1")
+
+[Datasheet 28BYJ-48 - 5V Stepper Motor](http://robocraft.ru/files/datasheet/28BYJ-48.pdf)
+
+
+
+```c
+
+void stepper(int xw){
+  for (int x=0;x<xw;x++){
+    switch(Steps){
+      
+       case 0:
+         digitalWrite(IN1, LOW); 
+         digitalWrite(IN2, LOW);
+         digitalWrite(IN3, LOW);
+         digitalWrite(IN4, HIGH);
+       break; 
+       
+       case 1:
+         digitalWrite(IN1, LOW); 
+         digitalWrite(IN2, LOW);
+         digitalWrite(IN3, HIGH);
+         digitalWrite(IN4, HIGH);
+       break; 
+       
+       case 2:
+         digitalWrite(IN1, LOW); 
+         digitalWrite(IN2, LOW);
+         digitalWrite(IN3, HIGH);
+         digitalWrite(IN4, LOW);
+       break; 
+       
+       case 3:
+         digitalWrite(IN1, LOW); 
+         digitalWrite(IN2, HIGH);
+         digitalWrite(IN3, HIGH);
+         digitalWrite(IN4, LOW);
+       break; 
+       
+       case 4:
+         digitalWrite(IN1, LOW); 
+         digitalWrite(IN2, HIGH);
+         digitalWrite(IN3, LOW);
+         digitalWrite(IN4, LOW);
+       break; 
+       
+       case 5:
+         digitalWrite(IN1, HIGH); 
+         digitalWrite(IN2, HIGH);
+         digitalWrite(IN3, LOW);
+         digitalWrite(IN4, LOW);
+       break; 
+       
+       case 6:
+         digitalWrite(IN1, HIGH); 
+         digitalWrite(IN2, LOW);
+         digitalWrite(IN3, LOW);
+         digitalWrite(IN4, LOW);
+       break; 
+       
+       case 7:
+         digitalWrite(IN1, HIGH); 
+         digitalWrite(IN2, LOW);
+         digitalWrite(IN3, LOW);
+         digitalWrite(IN4, HIGH);
+       break; 
+       
+       default:
+         digitalWrite(IN1, LOW); 
+         digitalWrite(IN2, LOW);
+         digitalWrite(IN3, LOW);
+         digitalWrite(IN4, LOW);
+       break; 
+    }
+SetDirection();
+  }
+} 
+
+```
+
+
+At the ottom of the last function we see a function call named set direction. Which is a simple
+funtion as it says it will add or subtract a value from the steps interger by doing this it reverses
+the sequence of how the switch statement in how the last function selects which case to use.
+
+So if Direction = 1 the cases run from top to bottom. If direction = 0 the case are selected in a order from bottom
+ascending to the top.
+
+Whenever the function ascends to exceed 7 or decends below 0 this will revert it back to the start of its
+loop respecting of which direction the motor is rotating.
+
+
+```c
+
+void SetDirection(){
+  if(Direction==1){ Steps++;}
+  if(Direction==0){ Steps--; }
+  if(Steps>7){Steps=0;}
+  if(Steps<0){Steps=7; }
+}
+
+```
+
+
 
 
 
