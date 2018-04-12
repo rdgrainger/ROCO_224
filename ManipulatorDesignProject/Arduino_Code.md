@@ -383,9 +383,9 @@ void Print_Proximity(){
 
 
 There are 8 diffrent combinations of setting the magnetic direction of this four phase motor.
-This function chooses which of these coils will be activited. the switch state ment for steps
-will be a value from 0-7 and will ascend or decend respectivly to the direct the motor will
-will be rotating in. thefore if you put a in put value to the function it will take that many steps
+This function chooses which of these coils will be activited. The switch statement for steps
+will be a value from 0-7 and will ascend or decend respectivly to the direction the motor will
+will be rotating in. therfore if you put a in put value to the function it will take that many steps
 in the direction of which it is asking.
 
 This Stepper has a gear ratio of 64 and a stride angle of 5.625 degrees. For a full revoluion we can use this equation.
@@ -472,15 +472,15 @@ SetDirection();
 ```
 
 
-At the ottom of the last function we see a function call named set direction. Which is a simple
-funtion as it says it will add or subtract a value from the steps interger by doing this it reverses
-the sequence of how the switch statement in how the last function selects which case to use.
+At the bottom of the last function we see a function call named set direction. Which is a simple
+funtion as it says it will add or subtract a value from the steps integer by doing this it reverses
+the sequence of how the switch statement in how the last function selects which cases to use.
 
 So if Direction = 1 the cases run from top to bottom. If direction = 0 the case are selected in a order from bottom
 ascending to the top.
 
 Whenever the function ascends to exceed 7 or decends below 0 this will revert it back to the start of its
-loop respecting of which direction the motor is rotating.
+loop respectivly of which direction the motor is rotating.
 
 
 ```c
