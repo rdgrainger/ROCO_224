@@ -218,28 +218,28 @@ Customers include..
 Boeing, BAE Systems, Merecedes Benz, Toyota Group, SAAB, Volvo, ABB, Nokia, BT Industries.
  
 
-1. FASTSUITE,CENIT (Germany)
+2. FASTSUITE,CENIT (Germany)
 
 This software specialises in robotic welding and is used by US company CROWN for the production of their forklifts.
 
-1. Octopuz (Canada)
+3. Octopuz (Canada)
 
 OCTOPUZ is optimized for various manufacturing applications such as welding (arc, spot, etc.), waterjet, plasma, and laser cutting, trimming, deburring, polishing, milling, machine tending, sanding, grinding, laser cladding, dispensing, inspection, painting, and robotic cell/process line simulations, in addition to custom applications that are requested by our customers. Customers with software development expertise can also do their own OCTOPUZ customization using its open API capabilities, thereby creating their own proprietary software solution.
 
 
-1. RobotDK (Canada, Spain)
+4. RobotDK (Canada, Spain)
 
 In addition to machining, welding, cutting, painting, inspection, deburring simulations, this software has an extensive library of industrial robot arms, external axes and tools from over 30 different robot manufacturers. 
 
 
 
-1. Robotmaster (USA)
+5. Robotmaster (USA)
 
 This software specialises in a more intuitive and user friendly approach to robotic simulation by automatically adjusting for singularities while maintaining the same functionalities as the software above. 
 
 
 
-1. SprutCam Robot (Russia)
+6. SprutCam Robot (Russia)
 
 SprutCam is a powerful, high-performance, full-spectrum programming system for milling, turning, wire EDM, multi-tasking machine tools and robots.
 
