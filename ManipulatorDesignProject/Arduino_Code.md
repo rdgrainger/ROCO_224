@@ -495,9 +495,9 @@ void SetDirection(){
 ```
 
 At the very start we call Map_steps(); which will be explained in the next function explination but
-essentially it takesa value and configures it into somthing more meaning full for the Rotate_Atm()
+essentially it takes a value and configures it into somthing more meaningfull for the Rotate_Atm()
 function. So once that is done the function will check whether or not steps are needed to be taken.
-If so then t will test against a timer to make sure that the stepper is not spinning to fast. and then
+If so then it will test against a timer to make sure that the stepper is not spinning to fast. Then
 we save a value for time that will be used as a argument in the next cycle of the loop and then
 subtract one from the number of steps to account for the step that is has just taken.
 
@@ -521,14 +521,15 @@ void Rotate_Arm(){
 ```
 
 Map_Steps will take a postion which we are told to go to and calculate how many steps to get
-theirs using our current position and in which direction to travel in. The first statment
-simply ask if the new postion is a lower position than the current degree. y know this we know which direction to go
+theirs using our current position and in which direction to travel in. The first statement
+simply asks if the new postion is a lower position than the current degree. So that
+the stepper know this we know which direction to go
 so if this argument is true it will be put into a reverse direction.
 
 Then next we work out what the diffrence is between the two positions we are travels from and to.
 By doing this we need to make sure that we dont get a negative value so multiply it by negative 1
 to revert it back to a positive as we have already solved for which direction to send it to in the 
-last if statment. After this we now have a direction of travel and how far to travel in but the
+last if statement. After this we now have a direction of travel and how far to travel in but the
 variable value is still in degrees so if their are 4096 steps in 360 degrees we can then simply
 multiply any value of degrees by 11.75 and then we would of made a conversion of degrees to steps. 
 
@@ -554,8 +555,8 @@ void Map_steps(){
 ```
 
 I would like the position in degrees to be fed back to the terminal for the user to see.
-so i made this function which would move the cursor to the bottom right of the terminal and
-print the position of which the redundant arm has been rotated.
+ So i made this function which would move the cursor to the bottom right of the terminal and
+print the position of which the redundant arm has been rotated at the base.
 
 ```c
 
