@@ -41,6 +41,8 @@ amalgumated into their main sketch.
 
 # Functions with operations and reasons explained.
 
+### void text_colour(int colour)_
+
 Function that will use the vt100 escape sequnces to change the colour of the text writing that is put onto a terminal. If you
 call this function use a single argument from 1 - 7 and text colour will change respectivly to what is commeted by the case condition.
 
@@ -85,6 +87,8 @@ void text_colour(int colour){
 
 ```
 
+### void move_cursor(int row, int col)
+
 Function also using the vt100 esc codes, this function take two arguments and (for selecting a row and a coloumn) and moves the cursor
 to that location on the terminal without effecting any other text that the cursor is moving over. it does this by looping through the
 rows one space a time. Then the cursor will move across the by looping through the columns.
@@ -116,6 +120,8 @@ void move_cursor(int row, int col)
 }
 
 ```
+
+### void set_terminal()
 
 This is one of the functions that sets the terminal borders. The function got very large so made some smaller ones that will also 
 be used within the initialization. Most of the terminal display will only need to be printed once ie the borders and options.
@@ -262,7 +268,7 @@ Serial.print("End Effector");
 
 ```
 
-
+### void Print_Load()
 
 Another serial print Function within the initialisation which pushes
 text to the monitor most of this code will not be changed. All that is
@@ -328,7 +334,7 @@ void Print_Load(){
 
 ```
 
-
+### void Print_Proximity()
 
 Same sort of function as the previous to be run with in the init loop. This time to
 display the proximty sensor panels of the terminal.
@@ -381,6 +387,7 @@ void Print_Proximity(){
 
 ```
 
+### void stepper(int xw)
 
 There are 8 diffrent combinations of setting the magnetic direction of this four phase motor.
 This function chooses which of these coils will be activited. The switch statement for steps
@@ -471,6 +478,7 @@ SetDirection();
 
 ```
 
+### void SetDirection()
 
 At the bottom of the last function we see a function call named set direction. Which is a simple
 funtion as it says it will add or subtract a value from the steps integer by doing this it reverses
@@ -493,6 +501,8 @@ void SetDirection(){
 }
 
 ```
+
+### void Rotate_Arm()
 
 At the very start we call Map_steps(); which will be explained in the next function explination but
 essentially it takes a value and configures it into somthing more meaningfull for the Rotate_Atm()
@@ -519,6 +529,8 @@ void Rotate_Arm(){
 }
 
 ```
+
+### void Map_steps()
 
 Map_Steps will take a postion which we are told to go to and calculate how many steps to get
 theirs using our current position and in which direction to travel in. The first statement
@@ -553,6 +565,8 @@ void Map_steps(){
 }
 
 ```
+
+### void Update_Stepper_Position()
 
 I would like the position in degrees to be fed back to the terminal for the user to see.
  So i made this function which would move the cursor to the bottom right of the terminal and
