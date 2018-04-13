@@ -1,7 +1,7 @@
 
 ## ROCO224 Introduction to Robotics
 
-# *Programming Industrial Robots*
+## *Programming Industrial Robots*
 
 ----------------Programming industrial robots(approximately 1000 words)------------------
 
@@ -24,7 +24,7 @@ The specification of the RV-2SD and RV-2AJ series are as follows...
  
 #### *Degree of Freedom*
 
-* 6 (RV-2SD) and 5 (RV-2Aj)
+* 6 (RV-2SD) and 5 (RV-2AJ)
 
 #### *Installation posture*
 
@@ -179,21 +179,74 @@ Water falling as a spray at any angle up to 60° from the vertical shall have no
 http://www.dsmt.com/resources/ip-rating-chart/
 
 
+The industrial arm that we have been using is the RV-2AJ. The main reason that we had decided to use this model instead of the RV-2SD was due to suitability for the group, there was only one RV-2SD. We also had access to the RV-2AJ mesh in the Virtual Components software, so this really was just a matter of convenience.
+
+RV-2AJ model image here----> 
+
+
 ---------------------------------------------Description of software used---------------------------------
 
-The software that that we will be using, for the task previously mentioned, is Visual Components Premium 4.0.
+The software that that we will be using, for the task previously mentioned, is Visual Components Premium 4.0 (previously 3D Automate).
 
 This is a manufacturing simulation package that enables us to 'virtualize'a factory enviroment. The software allows us to import objects, such as the Mitubishi robot arm and various other components, to test a program safely and efficiently with a 3D simulation before implementing it in a real world enviroment. 
 
 https://www.visualcomponents.com/
 
-# *Relevance*
+## *Relevance*
 
 Brief comparison of simulated and real robot
 
+
+The simulation lets us recreate a real world task relatively quickly, moving the arm and setting key positions in order to visualise our intended objectives and detect pitfalls or unforseen problems safely before initiating our routine in a real world enviroment. This method is known as Off-Line programming.This can all be done with one person with relative ease. However, we do need to implement simulated dynamics and physics such as collision detectors etc.. in order to maintain as much accuracy as possible. This can be problematic when using variables such as friction and can cause our simulated routine to behave differently to what was intended when using the real robot.
+
+When using the the real robot manually, known as online-Programming, we have to approach with care, which can take longer to set up and organise. This is due to human interaction with the Robot. When setting positions using the teach pendent, we need to be very aware of the enviroment surrounding the robot so we do not put anyone in danger and avoid accidents when programming it to achieve the tasks at hand. This has to be done with a minimum of two people and can never be done alone. However, when everything is prepared we found that we can get better and more accurate results using the robot in the real world as we can adjust movements in regards to physical varibles such as friction through trial and error which we can't necessarilly do with the simulation.  
+
 Brief comparison with other robot simulation software
 
-# *Development*
+Below is a list of other similar simulation OLP (Off-line Programming) software used ....
+
+### 1. Delfoi Robotics (Finland)
+
+This OLP "Utilises proven simulation technology platform provided by Visual components".
+
+The software supports all major robot brands  The software is used for various industries including automotive, heavy machinery, aerospace, construction steel, and ship building. Today more than 400 industrial companies are using Delfoi Robotics applications. 
+
+This software can simulate Arc/Laser welding, painting and cutting/milling and maching tasks.
+
+Customers include..
+
+Boeing, BAE Systems, Merecedes Benz, Toyota Group, SAAB, Volvo, ABB, Nokia, BT Industries.
+ 
+
+### 2. FASTSUITE,CENIT (Germany)
+
+This software specialises in robotic welding and is used by US company CROWN for the production of their forklifts.
+
+### 3. Octopuz (Canada)
+
+OCTOPUZ is optimized for various manufacturing applications such as welding (arc, spot, etc.), waterjet, plasma, and laser cutting, trimming, deburring, polishing, milling, machine tending, sanding, grinding, laser cladding, dispensing, inspection, painting, and robotic cell/process line simulations, in addition to custom applications that are requested by our customers. Customers with software development expertise can also do their own OCTOPUZ customization using its open API capabilities, thereby creating their own proprietary software solution.
+
+
+### 4. RobotDK (Canada, Spain)
+
+In addition to machining, welding, cutting, painting, inspection, deburring simulations, this software has an extensive library of industrial robot arms, external axes and tools from over 30 different robot manufacturers. 
+
+
+
+### 5. Robotmaster (USA)
+
+This software specialises in a more intuitive and user friendly approach to robotic simulation by automatically adjusting for singularities while maintaining the same functionalities as the software above. 
+
+
+
+### 6. SprutCam Robot (Russia)
+
+SprutCam is a powerful, high-performance, full-spectrum programming system for milling, turning, wire EDM, multi-tasking machine tools and robots.
+
+
+
+
+## *Development*
 
 Linked template code for mitsubishi arm.
 
@@ -205,7 +258,7 @@ Describe briefly problems encountered
 
 Describe briefly lessons learned
 
-# *Results*
+## *Results*
 
 Show how well your solution worked
 
@@ -213,10 +266,19 @@ Show any errors in executing the task
 
 Include figures with images/drawings etc
 
-# *Conclusion*
+## *Conclusion*
 
 Briefly conclude this part of the 
 coursework
 
 
+### *References*
+
+http://www.mitsubishirobots.com
+https://www.delfoi.com
+http://www.fastsuite.com
+https://octopuz.com
+https://robodk.com
+http://www.robotmaster.com
+https://www.sprutcam.com
 
