@@ -258,6 +258,167 @@ Before we learned how to simulate the robot arm using Visual Components, the fir
 
 '''
 
+'Below declares the joint position variables
+
+'DEF POS IP
+'DEF POS FP
+DEF POS CAL1 (Cal stands for calibration, Each position from CAL1-4 moves the board into the correct position) 
+DEF POS CAL2
+DEF POS CAL3
+DEF POS CAL4
+DEF POS PI1 (PI stands for Initial position)
+DEF POS PF1 (PF stands for Final position)
+DEF POS PI2
+DEF POS PF2
+DEF POS PI3
+DEF POS PF3
+DEF POS PI4
+DEF POS PF4
+
+
+'Define the positions of the variables learned by the teach pendant
+
+'IP = (293.440,2.820,423.020,90.580,177.150,0.000,0.000,0.000)(6,0)
+FP=(359.630,1.030,223.940,-0.590,174.810,0.000,0.000,0.000)(6,0) 
+CAL1=(409.440,-0.110,144.970,-89.840,173.380,0.000,0.000,0.000)(6,0) 
+CAL2=(392.280,0.090,142.790,-89.850,173.380,0.000,0.000,0.000)(6,0)
+CAL3=(286.420,231.850,139.400,0.240,177.160,0.000,0.000,0.000)(6,0)
+CAL4=(286.430,188.980,139.390,0.240,177.150,0.000,0.000,0.000)(6,0) 
+PI1=(337.760,133.210,166.100,0.240,177.160,0.000,0.000,0.000)(6,0) 
+PF1=(293.080,3.170,167.480,90.590,177.160,0.000,0.000,0.000)(6,0)
+PI2=(244.500,130.480,165.320,90.590,177.160,0.000,0.000,0.000)(6,0)
+PF2=(292.660,5.210,180.480,90.590,177.160,0.000,0.000,0.000)(6,0)
+PI3=(243.250,-123.460,165.780,90.590,177.160,0.000,0.000,0.000)(6,0)
+PF3=(289.960,3.360,202.290,90.590,177.160,0.000,0.000,0.000)(6,0)  
+PI4=(341.470,-123.340,167.210,90.590,177.160,0.000,0.000,0.000)(6,0) 
+PF4=(293.000,3.430,223.940,90.590,177.160,0.000,0.000,0.000)(6,0)   
+
+SERVO ON (Turns servos on)
+OVRD 20 (Sets speed)
+
+'Initial Position
+MOV FP
+'HOPEN 1 (Opens gripper)
+
+'Calibration Top
+MVS CAL1, -50 (MVS moves arm using cartesian coordinates 'straight movements' enabling us to use offsets e.g -50)
+HOPEN 1
+DLY 0.5 (DLY (Delay allows us to adjust movement)
+MOV CAL1 (MOV moves the arm using joint angles)
+DLY 0.5
+OVRD 5
+MOV CAL2 
+DLY 0.5
+MVS CAL1, -50
+OVRD 20
+DLY 0.5
+
+'Calibration Side
+HOPEN 1
+MVS CAL3, -50
+DLY 0.5
+MOV CAL3
+DLY 0.5
+OVRD 5
+MOV CAL4
+DLY 0.5
+MVS CAL3, -90
+OVRD 20
+DLY 0.5
+
+
+MVS PI1, -50
+HOPEN 1
+DLY 0.5
+MOV PI1
+OVRD 1
+DLY 0.5
+HCLOSE 1 (Closes gripper)
+DLY 0.5
+MVS PI1, -20
+OVRD 20
+DLY 0.5
+MVS PF1, -50
+OVRD 5
+DLY 0.5
+MOV PF1
+DLY 0.5
+HOPEN 1
+OVRD 20
+MVS PF1, -80
+DLY 0.5
+
+MVS PI2, -50
+HOPEN 1
+DLY 0.5
+MOV PI2
+OVRD 1
+DLY 0.5
+HCLOSE 1
+DLY 0.5
+MVS PI2, -20
+OVRD 20
+DLY 0.5
+MVS PF2, -50
+OVRD 5
+DLY 0.5
+MOV PF2
+DLY 0.5
+HOPEN 1
+OVRD 20
+MVS PF2, -50
+DLY 0.5
+
+MVS PI3, -50
+HOPEN 1
+DLY 0.5
+MOV PI3
+OVRD 1
+DLY 0.5
+HCLOSE 1
+DLY 0.5
+MVS PI3, -20
+OVRD 20
+DLY 0.5
+MVS PF3, -50
+OVRD 5
+DLY 0.5
+MOV PF3
+DLY 0.5
+HOPEN 1
+OVRD 20
+MVS PF3, -50
+DLY 0.5
+
+MVS PI4, -50
+HOPEN 1
+DLY 0.5
+MOV PI4
+OVRD 1
+DLY 0.5
+HCLOSE 1
+DLY 0.5
+MVS PI4, -20
+OVRD 20
+DLY 0.5
+MVS PF4, -50
+OVRD 5
+DLY 0.5
+MOV PF4
+DLY 0.5
+HOPEN 1
+OVRD 20
+MVS PF4, -90
+DLY 0.5
+
+
+
+
+'///////////////////////////////////////////////////////////
+
+
+SERVO OFF (Turns servos off)
+END (End program)
 '''
 
 
