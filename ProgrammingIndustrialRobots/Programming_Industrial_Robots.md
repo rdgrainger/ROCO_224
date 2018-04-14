@@ -175,13 +175,11 @@ Liquids Protection - Spraying water
 Water falling as a spray at any angle up to 60° from the vertical shall have no harmful effect.
 (Not Protected From Liquids)
  
-
-http://www.dsmt.com/resources/ip-rating-chart/
-
+[IP Rating Chart](http://www.dsmt.com/resources/ip-rating-chart/)
 
 The industrial arm that we have been using is the RV-2AJ. The main reason that we had decided to use this model instead of the RV-2SD was due to suitability for the group, there was only one RV-2SD. We also had access to the RV-2AJ mesh in the Virtual Components software, so this really was just a matter of convenience.
 
-RV-2AJ model image here----> 
+<img src=https://github.com/slperdomo-davies/ROCO_224/blob/master/images/rv2.jpg alt="RV-2AJ Model"/>
 
 
 ---------------------------------------------Description of software used---------------------------------
@@ -252,7 +250,17 @@ Linked template code for mitsubishi arm.
 
 https://mega.nz/#!yeAlXQAD!9WT7682P0vOglwi2xwGGpro0vAdTxhgiVgoNCQij1Kc
 
-Describe how you worked as a team to solve the task
+* Describe how you worked as a team to solve the task
+
+Before we learned how to simulate the robot arm using Visual Components, the first thing we needed to accomplish as a team was to learn how to manually use the Mitsubishi arm with the teach pendant and program it using Melpha for our individual driving tests.
+
+* Final Melpha Code for building a 4 block tower.
+
+'''
+
+'''
+
+
 
 Describe briefly problems encountered
 
