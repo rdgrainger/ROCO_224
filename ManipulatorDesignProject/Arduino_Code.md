@@ -584,3 +584,98 @@ void Update_Stepper_Position(){
 
 ```
 
+### void Update_Servo_Rotation()
+
+Also updates information to be displayed onto the terminal, This is specifically
+for the end-effector and will display any position between 0° and 180°. This is not designed
+to go outside of that range and display false data. The function where the end-effector is actually
+being controlled will also not allow it to go beyond these perameters.
+
+```c
+
+void Update_Servo_Rotation(){
+
+  if(pos>=0||pos<=180){
+    text_colour(6);
+    move_cursor(17 ,20);
+    Serial.print(pos);
+    Serial.print("  ");
+    move_cursor(17 ,24);
+    text_colour(3);
+    Serial.print(" degrees");
+  }
+}
+
+```
+
+### void Operate_EndEffector()
+
+In the main function i use Rapid polling constantly opposed to using interrepts and allowing the mcu to sleep.
+This function gets polled every other function check. Reason being is the other functions are alot more time consuming than this one.
+The vast majority of the times this function is called it will not get past the first if statement and will exit the function after then.
+Also this need to be check more often as i would like the user to be using the operations of the end-effector to feel frictionless, and not to feel
+like a long lag between the commands being entered and the commands being executed. If this was to be called at the same ratio as the other functions
+in the main function there would be a long delay as there are alot of cursor movement around the terminal. Even though the mcu can now work comfitably
+with a baud rate of 115200 the time delay is deffinently noticable. If this function does get through the first condition it is because a character has
+been entered into the keyboard. Therefore we need to figure out the action to take dependent of the which character was entered.
+entering either an "a" or a "d" into the switch statement will determine that the gripper of the end-effector needs to opened or closed.
+Aternativly for entering either a "q" or  an "e" this will rotate the end-effector. For the gripper its binary a in the sense that it is either oper or it
+is closed, For the rotation of the end effector it will rotate 20 degrees into the specified direction and is restricted betwen the angles
+of 0° and 180°. To remove the data within the serial i had to use a crude method of reseting the serial as many other methods i researched didnt not
+work the way i was expecting.
+
+```c
+
+void Operate_EndEffector(){
+  
+  if(Serial.available()>0) {
+    Servo_cmd = Serial.read();
+    switch(Servo_cmd){
+      
+      case('a'):
+        pos = 90;
+        for (pos = 90; pos >= 0; pos -= 1) {
+          myservo1.write(pos);              
+          delay(15);                      
+        }
+        break;
+        
+      case('d'):
+        pos = 0;
+        for (pos = 0; pos <= 90; pos += 1) { 
+          myservo1.write(pos);              // tell servo to go to position in variable 'pos'
+          delay(15);                             
+        }
+        break;
+        
+      case('q'):
+        if(pos>19);
+          y = 0;
+          while(y<20) { 
+            myservo2.write(pos-y);              // tell servo to go to position in variable 'pos'
+            delay(15); 
+            y++;                                
+          }
+          pos -= y;
+          Update_Servo_Rotation();
+        break;
+        
+      case('e'):
+        if(pos<161);
+          y = 0;
+          while(y<20) { 
+            myservo2.write(pos+y);              // tell servo to go to position in variable 'pos'
+            delay(15); 
+            y++;                       
+          }
+          pos += y;
+          Update_Servo_Rotation();
+        break;
+    }
+    Serial.end(); 
+    Serial.begin(115200); 
+  }
+}
+
+```
+
