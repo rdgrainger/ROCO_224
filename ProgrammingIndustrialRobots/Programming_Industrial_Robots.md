@@ -254,7 +254,7 @@ https://mega.nz/#!yeAlXQAD!9WT7682P0vOglwi2xwGGpro0vAdTxhgiVgoNCQij1Kc
 
 Before we learned how to simulate the robot arm using Visual Components, the first thing we needed to accomplish as a team was to learn how to manually use the Mitsubishi arm with the teach pendant and program it using Melpha for our individual driving tests.
 
-~~~~ Final Melpha Code for building a 4 block tower~~~~ ```
+~~~~Final Melpha Code for building a 4 block tower~~~~```
 
 
 ```
