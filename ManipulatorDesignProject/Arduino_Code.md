@@ -679,3 +679,139 @@ void Operate_EndEffector(){
 
 ```
 
+### void Update_Proximity-SensorX()_
+
+The reason for splitting into several functions is for effenciecy while rapid polling. If all of these where to be called
+in one function we ould be neglecting other more crucial parts of the program, you will be able to see with in the main loop
+exactly what i mean.
+
+Along the redundant arm we will have proximity sensors decting distance so that we
+can have canadd obsticle avoidance as another functionality. Here is where we detect a distance
+and and turn into a value that is more meaningful for a person to understand before calling a function which will display it to the terminal.
+
+
+As the speed of sound is relitivley constant we can call velocity 340 meters per second and using the time between transmit and
+receive the only unknown is displacment. The time between transmit and receive needs to be divided in half as the sound is traveling double the
+distance of what we are trying to find out.
+
+![alt text](https://howtomechatronics.com/wp-content/uploads/2015/07/Ultrasonic-Sensor-Equasions.png "Refrence https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/")
+
+![alt text](https://howtomechatronics.com/wp-content/uploads/2015/07/Ultrasonic-Sensor-Diagram.png "Refrence https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/")
+
+
+```c
+
+ void Update_Proximity_Sensor1(){
+
+  digitalWrite(trigPin1, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin1, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin1, LOW);
+  duration = pulseIn(echoPin1, HIGH);
+  distance= duration*0.034/2;
+  Print_Proximity_Distance(3);
+
+ }
+
+void Update_Proximity_Sensor2(){
+  digitalWrite(trigPin2, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin2, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin2, LOW);
+  duration = pulseIn(echoPin2, HIGH);
+  distance= duration*0.034/2;
+  Print_Proximity_Distance(5);
+
+}
+
+void Update_Proximity_Sensor3(){
+  digitalWrite(trigPin3, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin3, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin3, LOW);
+  duration = pulseIn(echoPin3, HIGH);
+  distance= duration*0.034/2;
+  Print_Proximity_Distance(7);
+
+}
+
+void Update_Proximity_Sensor4(){
+  digitalWrite(trigPin4, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin4, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin4, LOW);
+  duration = pulseIn(echoPin4, HIGH);
+  distance= duration*0.034/2;
+  Print_Proximity_Distance(9);
+
+}
+
+void Update_Proximity_Sensor5(){
+  digitalWrite(trigPin5, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin5, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin5, LOW);
+  duration = pulseIn(echoPin5, HIGH);
+  distance= duration*0.034/2;
+  Print_Proximity_Distance(11);
+  
+}
+
+```
+
+### void Print_Proximity_Distance(int col)
+
+Called at the end of void Update_Proximity_Sensor5() we call this function. The input argument is so it 
+knows what position to move the cursor terminal to. As ultra sonic sensors can detect out to 3 meters and i
+feel they become less reliable at this range I set a upper distance limit to 99 cm.
+
+```c
+
+void Print_Proximity_Distance(int col){
+  
+  if(distance<100){
+    text_colour(6);
+    move_cursor(col, 45);
+    Serial.print(distance);
+    Serial.print(" ");
+    move_cursor(col, 48);
+    Serial.print("cm");
+  }
+}
+
+```
+
+### void EndEffector_Proximity_Distance()
+
+This was a earlier prototype where it was not split into 2 functions. i decided to kepp it none the less
+ass it is worked to the same effect. This sensor is for the end effector only.
+
+```c
+
+void EndEffector_Proximity_Distance(){
+
+  digitalWrite(trigPin6, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin6, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin6, LOW);
+  duration = pulseIn(echoPin6, HIGH);
+  distance = duration*0.034/2;
+
+  if(distance<100){
+    text_colour(6);
+    move_cursor(17 ,63);
+    Serial.print(distance);
+    Serial.print(" ");
+    //move_cursor(col, 48);
+    //Serial.print("cm");
+  }
+}
+
+```
+
