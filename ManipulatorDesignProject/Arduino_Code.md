@@ -815,3 +815,155 @@ void EndEffector_Proximity_Distance(){
 
 ```
 
+### void loop()
+
+The main loop uses rapid polling rather than NVIC sub priorities. Operate_EndEffector()
+gets polled everyother function as to reduce delay between entering a serial value and
+being executed. If there is no serial the function exits very quickly so the time to call it
+this often does not make much diffrence to the speed of updating the sensors. this is why the 
+sensors are split rather than nested. The if statement will only trigger if i command comes in
+saying that the stepper motor is in the wrong position.
+
+```c
+
+void loop() {
+
+  Operate_EndEffector();
+  Update_Proximity_Sensor1();
+  Operate_EndEffector();
+  Update_Proximity_Sensor2();
+  Operate_EndEffector();
+  Update_Proximity_Sensor3();
+  Operate_EndEffector();
+  Update_Proximity_Sensor4();
+  Operate_EndEffector();
+  Update_Proximity_Sensor5();
+  Operate_EndEffector();
+  EndEffector_Proximity_Distance();
+  
+  if(Target_Position!=Current_Position){
+    Rotate_Arm();
+    Current_Position=Target_Position;
+    Update_Stepper_Position();
+  }
+}
+
+```
+
+### void setup()
+
+I will break this function down into sections.
+
+```c
+
+void setup() {
+
+  pinMode(IN1, OUTPUT); 
+  pinMode(IN2, OUTPUT); 
+  pinMode(IN3, OUTPUT); 
+  pinMode(IN4, OUTPUT); 
+  pinMode(trigPin1, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin1, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin2, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin2, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin3, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin3, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin4, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin4, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin5, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin5, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin6, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin6, INPUT); // Sets the echoPin as an Input
+  
+  myservo1.attach(6);  // attaches the servo on pin 9 to the servo object
+  myservo2.attach(9);  // attaches the servo on pin 9 to the servo object
+  
+  while (!Serial){;} //wait for serial port to connect
+  Serial.begin(115200);
+  Serial.print("\eS");  // tell to use 7-bit control codes
+  Serial.print("\e[?25l"); // hide cursor
+  Serial.print("\e[?12l"); // disable cursor highlighting
+  
+  Set_Terminal();
+  Print_Proximity();
+  Print_Load();
+}
+
+```
+
+Defining the 4 pins for the stepper motor driver
+
+![alt text](https://arduino-info.wikispaces.com/file/view/SmallStepperBoard2.jpg/229496680/400x300/SmallStepperBoard2.jpg)
+![alt text](http://arduino-info.wikispaces.com/file/view/Stepper-400px-Schematic.jpg/609544227/Stepper-400px-Schematic.jpg)
+![alt text](https://arduino-info.wikispaces.com/file/view/SmallStepperDiagram.jpg/342345564/333x251/SmallStepperDiagram.jpg)
+
+[Reference](https://arduino-info.wikispaces.com/SmallSteppers)
+
+Setting all pins as outputs when activated in combination these pins will set the phases
+of the motor.
+
+```c
+
+  pinMode(IN1, OUTPUT); 
+  pinMode(IN2, OUTPUT); 
+  pinMode(IN3, OUTPUT); 
+  pinMode(IN4, OUTPUT);
+
+```
+
+
+Inputs and outputs fot each ultra sonic sensor.
+
+
+```c
+
+  pinMode(trigPin1, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin1, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin2, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin2, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin3, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin3, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin4, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin4, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin5, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin5, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin6, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin6, INPUT); // Sets the echoPin as an Input
+
+```
+
+Defining which pins to use for operation of the endeffector servos.
+
+```c
+
+  myservo1.attach(6);  // attaches the servo on pin 9 to the servo object
+  myservo2.attach(9);  // attaches the servo on pin 9 to the servo object
+
+```
+
+The while loop will spin infinatly until the putty terminal is dectected by the serial so
+that the arduino doesnt start executing the putty setup before the terminal is opened.
+
+Setting the baud rate.
+
+vt100 escape sequences use ascii codes, remove terminal cursor and removes  cursor highlighting.
+
+```c
+
+  while (!Serial){;} //wait for serial port to connect
+  Serial.begin(115200);
+  Serial.print("\eS");  // tell to use 7-bit control codes
+  Serial.print("\e[?25l"); // hide cursor
+  Serial.print("\e[?12l"); // disable cursor highlighting
+
+```
+
+Already explained above but are only ever to be used once so they could within the setup
+
+```c
+
+  Set_Terminal();
+  Print_Proximity();
+  Print_Load();
+
+```
