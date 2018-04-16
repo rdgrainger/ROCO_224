@@ -967,3 +967,726 @@ Already explained above but are only ever to be used once so they could within t
   Print_Load();
 
 ```
+
+### Library, defined pins and global variables
+
+These have already been explained in detail when demonstrating them within there functions
+
+
+```c
+
+#include <Event.h>
+#include <Servo.h>
+
+#define IN4  8
+#define IN3  9
+#define IN2  10
+#define IN1  11
+
+#define trigPin1 22
+#define echoPin1 23
+#define trigPin2 24
+#define echoPin2 25
+#define trigPin3 26
+#define echoPin3 27
+#define trigPin4 28
+#define echoPin4 29
+#define trigPin5 30
+#define echoPin5 31
+#define trigPin6 32
+#define echoPin6 33
+
+Servo myservo1;  // create servo object to control a servo
+Servo myservo2;  // create servo object to control a servo
+
+// defines variables
+long duration;
+long time;
+  
+unsigned long Saved_time;
+unsigned long current_time;
+
+int col = 1;   //moves terminal cursor along columns
+int row = 1;   //moves terminal cursor along rows
+int steps = 0; //chooses the combination of coils to activate to take a 7.5 degree step (step is a reserved word)
+int timer_pin = 13;
+int Refresh_Proximity_Sensors;
+int distance;
+int pos = 0;
+int steps_remaining = 0;
+int Target_Position = 0;
+int Current_Position = 0;
+int Steps = 0;
+int i = 0;
+int y = 0;
+
+char Servo_cmd;
+
+boolean Direction = true;// gre
+
+```
+
+### Sketch
+
+By amalgumating all of the above we can create a full sketch.
+
+```c
+
+#include <Event.h>
+#include <Servo.h>
+
+#define IN4  8
+#define IN3  9
+#define IN2  10
+#define IN1  11
+
+#define trigPin1 22
+#define echoPin1 23
+#define trigPin2 24
+#define echoPin2 25
+#define trigPin3 26
+#define echoPin3 27
+#define trigPin4 28
+#define echoPin4 29
+#define trigPin5 30
+#define echoPin5 31
+#define trigPin6 32
+#define echoPin6 33
+
+Servo myservo1;  // create servo object to control a servo
+Servo myservo2;  // create servo object to control a servo
+
+// defines variables
+long duration;
+long time;
+  
+unsigned long Saved_time;
+unsigned long current_time;
+
+int col = 1;   //moves terminal cursor along columns
+int row = 1;   //moves terminal cursor along rows
+int steps = 0; //chooses the combination of coils to activate to take a 7.5 degree step (step is a reserved word)
+int timer_pin = 13;
+int Refresh_Proximity_Sensors;
+int distance;
+int pos = 0;
+int steps_remaining = 0;
+int Target_Position = 0;
+int Current_Position = 0;
+int Steps = 0;
+int i = 0;
+int y = 0;
+
+char Servo_cmd;
+
+boolean Direction = true;// gre
+
+void setup() {
+
+  pinMode(IN1, OUTPUT); 
+  pinMode(IN2, OUTPUT); 
+  pinMode(IN3, OUTPUT); 
+  pinMode(IN4, OUTPUT); 
+  pinMode(trigPin1, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin1, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin2, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin2, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin3, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin3, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin4, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin4, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin5, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin5, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin6, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin6, INPUT); // Sets the echoPin as an Input
+  
+  myservo1.attach(6);  // attaches the servo on pin 9 to the servo object
+  myservo2.attach(9);  // attaches the servo on pin 9 to the servo object
+  
+  while (!Serial){;} //wait for serial port to connect
+  Serial.begin(115200);
+  Serial.print("\eS");  // tell to use 7-bit control codes
+  Serial.print("\e[?25l"); // hide cursor
+  Serial.print("\e[?12l"); // disable cursor highlighting
+  
+  Set_Terminal();
+  Print_Proximity();
+  Print_Load();
+}
+
+void loop() {
+
+  Operate_EndEffector();
+  Update_Proximity_Sensor1();
+  Operate_EndEffector();
+  Update_Proximity_Sensor2();
+  Operate_EndEffector();
+  Update_Proximity_Sensor3();
+  Operate_EndEffector();
+  Update_Proximity_Sensor4();
+  Operate_EndEffector();
+  Update_Proximity_Sensor5();
+  Operate_EndEffector();
+  EndEffector_Proximity_Distance();
+  
+  if(Target_Position!=Current_Position){
+    Rotate_Arm();
+    Current_Position=Target_Position;
+    Update_Stepper_Position();
+  }
+}
+
+void text_colour(int colour){
+  
+  switch(colour){
+    case(0):  //black
+      Serial.print("\x1b[30m");
+      break;
+      
+    case(1):  //red
+      Serial.print("\x1b[31m");
+      break;
+      
+    case(2):  //green
+      Serial.print("\x1b[32m");
+      break;
+      
+    case(3):  //yellow
+      Serial.print("\x1b[33m");
+      break;
+      
+    case(4): //blue
+      Serial.print("\x1b[34m");
+      break;
+
+    case(5): //magneta
+      Serial.print("\x1b[35m");
+      break;
+      
+    case(6):  //cyan
+      Serial.print("\x1b[36m");
+      break;
+
+    case(7):  //white
+      Serial.print("\x1b[37m");
+      break;
+  }
+}
+
+void move_cursor(int row, int col)
+{
+  int i;          //return home
+  Serial.print('\x1b');   // ESC
+  Serial.print('[');    
+  Serial.print('H');
+  for(i=0; i<row; i++)
+  {
+  Serial.print('\x1b');   // ESC
+  Serial.print('[');    //move x amount of rows
+  Serial.print(1);
+  Serial.print('B');
+  }
+  for(i=0; i<col; i++)
+  {
+  Serial.print('\x1b');   // ESC
+  Serial.print('[');    //move x amount of columns
+  Serial.print(1);
+  Serial.print('C');
+  }
+}
+
+void Set_Terminal(){
+  
+  text_colour(5);
+  //                                                                                                                 
+  //              0000000000111111111122222222223333333333444444444455555555556666666666777777777788888888889999999999      
+  //              0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789       
+  Serial.println("####################################################################################################"); //0
+  Serial.println("#                              #                     #                     #                       #"); //1
+  Serial.println("#                              #####################################################################"); //2
+  Serial.println("#                              #                     #                     #                       #"); //3
+  Serial.println("#                              #############################################                       #"); //4
+  Serial.println("#                              #                     #                     #########################"); //5
+  Serial.println("#                              #############################################                       #"); //6
+  Serial.println("#                              #                     #                     #                       #"); //7
+  Serial.println("#                              #####################################################################"); //8
+  Serial.println("#                              #                     #                     #                       #"); //9
+  Serial.println("#                              #############################################                       #"); //10
+  Serial.println("#                              #                     #                     #########################"); //11
+  Serial.println("#                              #############################################                       #"); //12
+  Serial.println("#                                                    #                     #                       #"); //13
+  Serial.println("####################################################################################################"); //14
+  Serial.println("#                                                                          #                       #"); //15
+  Serial.println("############################################################################                       #"); //16
+  Serial.println("#                                     ##                                   #########################"); //17
+  Serial.println("############################################################################                       #"); //18
+  Serial.println("#                  ####               ##               ####                #                       #"); //19
+  Serial.println("####################################################################################################"); //20
+  Serial.println("#                  ==>>               ##               ==>>                #                       #"); //21
+  Serial.println("#                  ==>>               ##               ==>>                #                       #"); //22
+  Serial.println("####################################################################################################"); //24
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Display right hand panel
+
+  text_colour(3);
+  move_cursor(1 ,76);
+  Serial.print("    Servo Positions    ");
+  move_cursor(3 ,76);
+  text_colour(3);
+  Serial.print("        Servo 1        ");
+  move_cursor(4 ,76);
+  text_colour(1); Serial.print("X:0.000 "); text_colour(2); Serial.print("Y:0.000 "); text_colour(4); Serial.print("Z:0.000"); text_colour(3);
+  move_cursor(6 ,76);
+  Serial.print("        Servo 2        ");
+  move_cursor(7 ,76);
+  text_colour(1); Serial.print("X:0.000 "); text_colour(2); Serial.print("Y:0.000 "); text_colour(4); Serial.print("Z:0.000"); text_colour(3);
+  move_cursor(9 ,76);
+  Serial.print("        Servo 3        ");
+  move_cursor(10,76);
+  text_colour(1); Serial.print("X:0.000 "); text_colour(2); Serial.print("Y:0.000 "); text_colour(4); Serial.print("Z:0.000"); text_colour(3);
+  move_cursor(12 ,76);
+  Serial.print("        Servo 4        ");
+  move_cursor(13 ,76);
+  text_colour(1); Serial.print("X:0.000 "); text_colour(2); Serial.print("Y:0.000 "); text_colour(4); Serial.print("Z:0.000"); text_colour(3);
+  move_cursor(15 ,76);
+  Serial.print("        Servo 5        ");
+  move_cursor(16 ,76);
+  text_colour(1); Serial.print("X:0.000 "); text_colour(2); Serial.print("Y:0.000 "); text_colour(4); Serial.print("Z:0.000"); text_colour(3);
+  move_cursor(18 ,76);
+  Serial.print("        Servo 6        ");
+  move_cursor(19 ,76);
+  text_colour(1); Serial.print("X:0.000 "); text_colour(2); Serial.print("Y:0.000 "); text_colour(4); Serial.print("Z:0.000"); text_colour(3);
+  move_cursor(21 ,76);
+  Serial.print("     Stepper Angle     ");
+  move_cursor(22 ,76);
+  text_colour(6); Serial.print("      0   "); Serial.print("Degrees ");
+  
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Claw control panel
+
+text_colour(3);
+move_cursor(19 ,1);
+Serial.print("   Rotate claw    ");
+move_cursor(19 ,23);
+Serial.print("  User control ");
+move_cursor(19 ,40);
+Serial.print(" H open/close  ");
+move_cursor(19 ,59);
+Serial.print("  user control  ");
+
+move_cursor(21 ,1);
+Serial.print("    Clockwise     ");
+move_cursor(21 ,23);
+text_colour(6);
+Serial.print("       Q       ");
+text_colour(3);
+move_cursor(21 ,40);
+Serial.print("    Open       ");
+text_colour(6);
+move_cursor(21 ,59);
+Serial.print("       A        ");
+text_colour(3);
+
+move_cursor(22 ,1);
+Serial.print("Counter clockwise ");
+move_cursor(22 ,23);
+text_colour(6);
+Serial.print("       E       ");
+text_colour(3);
+move_cursor(22 ,40);
+Serial.print("    Close      ");
+move_cursor(22 ,59);
+text_colour(6);
+Serial.print("       D        ");
+text_colour(3);
+
+move_cursor(17 ,9);
+Serial.print("Rotation @");
+move_cursor(17 ,19);
+text_colour(6);
+Serial.print(" 000 ");
+move_cursor(17 ,24);
+text_colour(3);
+Serial.print(" degrees");
+text_colour(3);
+move_cursor(17 ,47);
+Serial.print("object distance ");
+text_colour(6);
+move_cursor(17 ,63);
+Serial.print("00 cm");
+move_cursor(15 ,32);
+text_colour(3);
+Serial.print("End Effector");
+
+}
+
+void Print_Load(){
+
+  text_colour(3);
+  move_cursor(1, 57);
+  Serial.print("Load on servos");
+
+  text_colour(3);
+  move_cursor(3, 55);
+  Serial.print("Servo 1: ");
+  text_colour(6);
+  Serial.print(0.000);
+  Serial.print(" N/m  ");
+
+  text_colour(3);
+  move_cursor(5, 55);
+  Serial.print("Servo 2: ");
+  text_colour(6);
+  Serial.print(0.000);
+  Serial.print(" N/m  ");
+
+  text_colour(3);
+  move_cursor(7, 55);
+  Serial.print("Servo 3: ");
+  text_colour(6);
+  Serial.print(0.000);
+  Serial.print(" N/m  ");
+
+  text_colour(3);
+  move_cursor(9, 55);
+  Serial.print("Servo 4: ");
+  text_colour(6);
+  Serial.print(0.000);
+  Serial.print(" N/m  ");
+
+  text_colour(3);
+  move_cursor(11, 55);
+  Serial.print("Servo 5: ");
+  text_colour(6);
+  Serial.print(0.000);
+  Serial.print(" N/m  ");
+
+  text_colour(3);
+  move_cursor(13, 55);
+  Serial.print("Servo 6: ");
+  text_colour(6);
+  Serial.print(0.000);
+  Serial.print(" N/m  ");
+ 
+}
+
+void Print_Proximity(){
+
+  text_colour(3);
+  move_cursor(1, 34);
+  Serial.print("proximity sensors");
+
+  text_colour(3);
+  move_cursor(3, 35);
+  Serial.print("Sensor 1: ");
+  text_colour(6);
+  Serial.print(00);
+  Serial.print("  cm ");
+
+  text_colour(3);
+  move_cursor(5, 35);
+  Serial.print("Sensor 2: ");
+  text_colour(6);
+  Serial.print(00);
+  Serial.print("  cm ");
+
+  text_colour(3);
+  move_cursor(7, 35);
+  Serial.print("Sensor 3: ");
+  text_colour(6);
+  Serial.print(00);
+  Serial.print("  cm ");
+
+  text_colour(3);
+  move_cursor(9, 35);
+  Serial.print("Sensor 4: ");
+  text_colour(6);
+  Serial.print(00);
+  Serial.print("  cm ");
+
+  text_colour(3);
+  move_cursor(11, 35);
+  Serial.print("Sensor 5: ");
+  text_colour(6);
+  Serial.print(00);
+  Serial.print("  cm ");
+}
+
+void stepper(int xw){
+  for (int x=0;x<xw;x++){
+    switch(Steps){
+      
+       case 0:
+         digitalWrite(IN1, LOW); 
+         digitalWrite(IN2, LOW);
+         digitalWrite(IN3, LOW);
+         digitalWrite(IN4, HIGH);
+       break; 
+       
+       case 1:
+         digitalWrite(IN1, LOW); 
+         digitalWrite(IN2, LOW);
+         digitalWrite(IN3, HIGH);
+         digitalWrite(IN4, HIGH);
+       break; 
+       
+       case 2:
+         digitalWrite(IN1, LOW); 
+         digitalWrite(IN2, LOW);
+         digitalWrite(IN3, HIGH);
+         digitalWrite(IN4, LOW);
+       break; 
+       
+       case 3:
+         digitalWrite(IN1, LOW); 
+         digitalWrite(IN2, HIGH);
+         digitalWrite(IN3, HIGH);
+         digitalWrite(IN4, LOW);
+       break; 
+       
+       case 4:
+         digitalWrite(IN1, LOW); 
+         digitalWrite(IN2, HIGH);
+         digitalWrite(IN3, LOW);
+         digitalWrite(IN4, LOW);
+       break; 
+       
+       case 5:
+         digitalWrite(IN1, HIGH); 
+         digitalWrite(IN2, HIGH);
+         digitalWrite(IN3, LOW);
+         digitalWrite(IN4, LOW);
+       break; 
+       
+       case 6:
+         digitalWrite(IN1, HIGH); 
+         digitalWrite(IN2, LOW);
+         digitalWrite(IN3, LOW);
+         digitalWrite(IN4, LOW);
+       break; 
+       
+       case 7:
+         digitalWrite(IN1, HIGH); 
+         digitalWrite(IN2, LOW);
+         digitalWrite(IN3, LOW);
+         digitalWrite(IN4, HIGH);
+       break; 
+       
+       default:
+         digitalWrite(IN1, LOW); 
+         digitalWrite(IN2, LOW);
+         digitalWrite(IN3, LOW);
+         digitalWrite(IN4, LOW);
+       break; 
+    }
+SetDirection();
+  }
+} 
+
+
+void SetDirection(){
+  if(Direction==1){ Steps++;}
+  if(Direction==0){ Steps--; }
+  if(Steps>7){Steps=0;}
+  if(Steps<0){Steps=7; }
+}
+
+void Rotate_Arm(){
+  
+  Map_steps();
+  
+  while(steps_remaining>0){
+    current_time = micros();
+    if(current_time-Saved_time>=1000){
+      stepper(1); 
+      time=time+micros()-Saved_time;
+      Saved_time=micros();
+      steps_remaining--;
+    }
+  }
+}
+
+void Map_steps(){
+  //4095 for a 360 degree rotation
+  //Target postion will a value inbetween 0 and 360 degree
+  
+  if(Target_Position<Current_Position){
+    Direction=!Direction;
+  }
+  
+  Target_Position = Target_Position - Current_Position;
+
+  if(Target_Position<=-1){
+    Target_Position = Target_Position*-1;
+  }
+  
+  steps_remaining = Target_Position*11.75f;
+}
+
+void Update_Stepper_Position(){
+
+  move_cursor(22 ,82);
+  Current_Position = Target_Position;
+  Serial.print(Current_Position);
+  
+}
+
+void Update_Servo_Rotation(){
+
+  if(pos>=0||pos<=180){
+    text_colour(6);
+    move_cursor(17 ,20);
+    Serial.print(pos);
+    Serial.print("  ");
+    move_cursor(17 ,24);
+    text_colour(3);
+    Serial.print(" degrees");
+  }
+}
+
+void Operate_EndEffector(){
+  
+  if(Serial.available()>0) {
+    Servo_cmd = Serial.read();
+    switch(Servo_cmd){
+      
+      case('a'):
+        pos = 90;
+        for (pos = 90; pos >= 0; pos -= 1) {
+          myservo1.write(pos);              
+          delay(15);                      
+        }
+        break;
+        
+      case('d'):
+        pos = 0;
+        for (pos = 0; pos <= 90; pos += 1) { 
+          myservo1.write(pos);              // tell servo to go to position in variable 'pos'
+          delay(15);                             
+        }
+        break;
+        
+      case('q'):
+        if(pos>19);
+          y = 0;
+          while(y<20) { 
+            myservo2.write(pos-y);              // tell servo to go to position in variable 'pos'
+            delay(15); 
+            y++;                                
+          }
+          pos -= y;
+          Update_Servo_Rotation();
+        break;
+        
+      case('e'):
+        if(pos<161);
+          y = 0;
+          while(y<20) { 
+            myservo2.write(pos+y);              // tell servo to go to position in variable 'pos'
+            delay(15); 
+            y++;                       
+          }
+          pos += y;
+          Update_Servo_Rotation();
+        break;
+    }
+    Serial.end(); 
+    Serial.begin(115200); 
+  }
+}
+
+ void Update_Proximity_Sensor1(){
+
+  digitalWrite(trigPin1, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin1, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin1, LOW);
+  duration = pulseIn(echoPin1, HIGH);
+  distance= duration*0.034/2;
+  Print_Proximity_Distance(3);
+
+ }
+
+void Update_Proximity_Sensor2(){
+  digitalWrite(trigPin2, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin2, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin2, LOW);
+  duration = pulseIn(echoPin2, HIGH);
+  distance= duration*0.034/2;
+  Print_Proximity_Distance(5);
+
+}
+
+void Update_Proximity_Sensor3(){
+  digitalWrite(trigPin3, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin3, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin3, LOW);
+  duration = pulseIn(echoPin3, HIGH);
+  distance= duration*0.034/2;
+  Print_Proximity_Distance(7);
+
+}
+
+void Update_Proximity_Sensor4(){
+  digitalWrite(trigPin4, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin4, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin4, LOW);
+  duration = pulseIn(echoPin4, HIGH);
+  distance= duration*0.034/2;
+  Print_Proximity_Distance(9);
+
+}
+
+void Update_Proximity_Sensor5(){
+  digitalWrite(trigPin5, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin5, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin5, LOW);
+  duration = pulseIn(echoPin5, HIGH);
+  distance= duration*0.034/2;
+  Print_Proximity_Distance(11);
+  
+}
+
+void Print_Proximity_Distance(int col){
+  
+  if(distance<100){
+    text_colour(6);
+    move_cursor(col, 45);
+    Serial.print(distance);
+    Serial.print(" ");
+    move_cursor(col, 48);
+    Serial.print("cm");
+  }
+}
+
+void EndEffector_Proximity_Distance(){
+
+  digitalWrite(trigPin6, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin6, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin6, LOW);
+  duration = pulseIn(echoPin6, HIGH);
+  distance = duration*0.034/2;
+
+  if(distance<100){
+    text_colour(6);
+    move_cursor(17 ,63);
+    Serial.print(distance);
+    Serial.print(" ");
+    //move_cursor(col, 48);
+    //Serial.print("cm");
+  }
+}
+
+```
