@@ -10,7 +10,7 @@ and the state of the gripper.
 
 This End-effector is to be 3D printed from PLA for the following reasons.
 
-* PLA is not enviromentally harmful.
+* PLA is NOT harmful to the environment.
 
 * This end-effector does not need the added strength or higher melting point advantages that ABS offers.
 
