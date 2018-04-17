@@ -1,12 +1,14 @@
 # End-effector
 
+### Description
+
 The end-effector for the redundant arm is going to be a pincer style gripper which
 is to be operated by two servos. One servo will close the gripper whilst the other
 will control the rotation of the end effector. The user will be able to control the end
 effector from the serial terminal (putty) and information will be fed back on the angle
 and the state of the gripper.
 
-### printing
+### Printing
 
 This End-effector is to be 3D printed from PLA for the following reasons.
 
@@ -36,8 +38,8 @@ which pixel you are targeting and the arduino will know how to get their and be 
 click of a button. I did manage to successfully make this work but it took so long to capture a image it was bottle necking
 processing speed for keeping other data current and decided it was far to taxing to keep it included within the sketch.
 
-This is the End-effector portion of of the terminal is shown below and is kept towards the bottom left onf the terminal
-As seen the object distance relates to the ultra sonic sensor. rotation @ x degrees is changable using the Q and E key from
+This is the End-effector portion of of the terminal is shown below and is kept towards the bottom left of the terminal
+As seen the object distance relates to the ultra sonic sensor. Rotation @ x degrees is changable using the Q and E key from
 the keyboard and the gripper and be opened and closed by using the A and D keys.
 
 ![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30706812_547542192327409_3959721976600957218_n.jpg?_nc_cat=0&oh=78a7f4ded3b07da744d80771ed834f22&oe=5B567E7C
