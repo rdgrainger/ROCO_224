@@ -46,3 +46,25 @@ the keyboard and the gripper and be opened and closed by using the A and D keys.
  "Putty Terminal")
 
 ### Design
+
+![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30226284_543637989384496_7946924284049508048_n.jpg?_nc_cat=0&oh=3ba45e0a495fbf95b6ef5cb8e7c13418&oe=5B73D877 "reference google")
+
+![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30262089_543637886051173_7528792012232457465_n.jpg?_nc_cat=0&oh=737bdb1384b5d95c2cf6eb916e3c5a34&oe=5B6648B7 "reference google")
+
+![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30264779_543637882717840_2496579833197552654_n.jpg?_nc_cat=0&oh=9ae41402f331d8764b39ef9b44f23d9c&oe=5B5289E4 "reference google")
+
+![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30222305_543637889384506_731331599402551053_n.jpg?_nc_cat=0&oh=cfde7b64f81bce25bc485f984b735f80&oe=5B560CC9 "reference google")
+
+![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30226854_543637829384512_949741924307240401_n.jpg?_nc_cat=0&oh=26f52543b65f7a27693bd73c6ebc56c5&oe=5B63C0CD "reference google")
+
+![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30261695_543637942717834_7309470113158697161_n.jpg?_nc_cat=0&oh=7327cf68b40d3358da9aa6366147af19&oe=5B7036D5 "reference google")
+
+![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30414781_543637832717845_1012479154870773978_n.jpg?_nc_cat=0&oh=082061b54b9a75b909990bfb8bf5adda&oe=5B7152B6 "reference google")
+
+![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30440672_543637992717829_1365184750596316462_n.jpg?_nc_cat=0&oh=674d18b0d06cf88264091213ba6bfa8c&oe=5B52A0B0 "reference google")
+
+![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t31.0-8/30171511_543637996051162_8558167694738994149_o.jpg?_nc_cat=0&oh=c36f38785209245d7f4c5d26aed35ccc&oe=5B564F6B "reference google")
+
+![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30261289_543637939384501_4974151850118603510_n.jpg?_nc_cat=0&oh=08da735408bc6eb58cc499ce70965840&oe=5B67DC4B "reference google")
+
+![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30222345_543637826051179_6098994668176385199_n.jpg?_nc_cat=0&oh=943b0d8a780c75a4a47dbdebc597f9a6&oe=5B63FCF7 "reference google")
