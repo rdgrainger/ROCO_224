@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "task-Arduino_Code",
+      "appliesTo": "ManipulatorDesignProject/Arduino_Code",
+      "type": "launch"
+    }
+  ]
+}
