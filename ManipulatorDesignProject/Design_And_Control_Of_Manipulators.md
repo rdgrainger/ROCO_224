@@ -53,6 +53,14 @@ Therefore, we have two main features to showcase – the redundancy and the abil
 
 ## *Design Process*
 
+Our design process began with sketching and discussing ideas for ‘section B’ of the arm. We decided early on to have the servos attached together with short brackets rather than limb-like links. Our reasoning was to reduce weight, length and overall complexity. With a shorter arm weight and length, the servos will experience less force and can operate more efficiently.
+
+Once we had a general idea of section B, we split the group in two – a pair working on section A and another to continue section B.
+
+For section A, the end effector, we investigated different claw designs, sketching these ideas on paper. Once we had a design we felt was feasible, we created parts in fusion 360 and made an assembly of these parts to model the claw as one unit.
+The end effector was to include a 9g servo and the claw would be 3D printed as separate parts then assembled.
+
+
 Since the arm has 8 servos, the idea behind the design was to keep it as light as possible. We decided to directly attach each servo on to the previous one without any links between them except for one link that goes after the shoulder joint. After we had a rough idea of our design, the first thing we did was to make sure that the RX-28 servos (especially the servo that will need maximum ammout of torque) will be able to deliver the required torque for the design, for this we derived the moment formulas for our design.
 
 
@@ -64,6 +72,12 @@ stress. The second page account for when not at 90 degrees.
 _|----------------------------------------------------|_
 
 ### What design iterations have you gone through?
+
+End Effector Design Iterations:
+Sliding gripper model – 
+
+*Picture*
+
 
 ### Who worked on what and when?
 
