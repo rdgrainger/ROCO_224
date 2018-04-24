@@ -24,6 +24,14 @@ Design and control of manipulators (approximately 3000 words)
 
 ## *Introduction*
 
+The Design and Control of Manipulators is one section the roco224 coursework, alongside ‘Programming Industrial Robots’ It consists of a student-driven group design project, where the goal is to fulfil a chosen task related to the field of robotic manipulators. Our group is named ‘Rossumovi Roboti’ and consists of four members: <br>
+Spencer Perdomo-Davies <br>
+Robert Grainger <br>
+Jack Gell <br>
+Faisal Fazal-Ur-Rehman <br>
+There are 8 project challenges to choose from, though the group could design a new challenge if desired. After some discussion, our group has settled on challenge 4 – The Redundant Freedom Arm. However, due to our large group size we have also decided to incorporate elements of 2 – Pick and Place. This will allow us to allocate a suitable quantity of work amongst ourselves.
+
+
 ### Description of hardware 
 
 ### Description of task
