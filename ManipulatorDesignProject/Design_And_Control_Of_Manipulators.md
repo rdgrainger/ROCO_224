@@ -41,6 +41,14 @@ There are 8 project challenges to choose from, though the group could design a n
 
 ### Description of task
 
+Our manipulator will consist of two segments. 
+
+Section A – the end effector, a claw to grip and position objects. 
+
+Section B – the redundant arm, a series of RX-28 servos to showcase redundancy and position the end effector.
+
+Therefore, we have two main features to showcase – the redundancy and the ability to pick and place an object.
+
 ### An overview of your approach to the problem
 
 ## *Design Process*
