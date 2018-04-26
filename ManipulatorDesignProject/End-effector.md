@@ -47,14 +47,20 @@ the keyboard and the gripper and be opened and closed by using the A and D keys.
 
 ### Design
 
+We wanted our end-effector to work abit like a pincer but not exactly, we have chosen this style of design so
+that out gripper can reach forward and grab onto a object. With the design shown below we can lay a good amount of surface area on the object
+but still move in a pincer like fasion. Part of the gripper is hollowed out to save on weight and it also looks nicer, another way to save weight 
+was not to encase the servo entirely although that was the original idea i realised that it was pointless and shorted it down.
+
 ![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30226284_543637989384496_7946924284049508048_n.jpg?_nc_cat=0&oh=3ba45e0a495fbf95b6ef5cb8e7c13418&oe=5B73D877 "reference google")
 
 ![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30262089_543637886051173_7528792012232457465_n.jpg?_nc_cat=0&oh=737bdb1384b5d95c2cf6eb916e3c5a34&oe=5B6648B7 "reference google")
-
+As seen here one servo operate both of the gripper by using cogs. This ensures that both the arms are in mirror image with each other
+and saves weight of not have an extra servo, and the weight required from PLA to house another servo.
 ![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30264779_543637882717840_2496579833197552654_n.jpg?_nc_cat=0&oh=9ae41402f331d8764b39ef9b44f23d9c&oe=5B5289E4 "reference google")
-
+By looking closely there are holes so that the servo can be screwed into place.
 ![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30222305_543637889384506_731331599402551053_n.jpg?_nc_cat=0&oh=cfde7b64f81bce25bc485f984b735f80&oe=5B560CC9 "reference google")
-
+### Individuel components
 ![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30226854_543637829384512_949741924307240401_n.jpg?_nc_cat=0&oh=26f52543b65f7a27693bd73c6ebc56c5&oe=5B63C0CD "reference google")
 
 ![alt text](https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/30261695_543637942717834_7309470113158697161_n.jpg?_nc_cat=0&oh=7327cf68b40d3358da9aa6366147af19&oe=5B7036D5 "reference google")
