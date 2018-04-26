@@ -1690,3 +1690,375 @@ void EndEffector_Proximity_Distance(){
 }
 
 ```
+
+# Comms between boards
+
+There was a issue that because the com port was being used between putty and the mega nothing else
+would be able to chat with the Mega. Which Inturn ment we could no longer use ROS nor display Dynamixel
+data to putty. Therfore i decided to create a communication link between the two microcontrollers, Using
+12 digital out pins on the UNO and 12 digital in pins on the mega using a analog as a flag to the uno that
+it is ready to receive data.
+
+I have called it SPI which is not true but did not know exactly what to call.
+
+#### Uno side
+
+The way it was to do this is by taking a value and bitshifting to isolate each bit of the integer. Then
+from MSB to LSB i would raise the pull up resistors depending on each bit. 
+
+#### Mega side
+
+On the side of the mega it would sum values depending on which inputs it is receiving from the uno. bit 0 will add
+1 to the value bit 2 will add 4 to the value etc..
+
+The value coming through will range from 0 to 999 so that i would not have to comunicate floating points over the
+digital COM. Therefore a simply manipulation of dividing the value by 100 will send it to the real floating point value
+range of 0 to 9.99.
+
+### COMs code for uno
+
+explained in no real order as this shall be summerized afterwards.
+
+#### void sendspi()
+
+We have a value that we want to send over to the mega and as each digital pin represents one bit
+we need to test all 12 of them. We have a bitshift function which will isolate each bit and
+retain a true or false value. If that bit is true it shal raise the pull up resistor and proceed to
+test the next bit. This process is repeated till every bit has been related to a pin. 
+
+```c
+
+void sendspi(){
+
+  while(digitalRead(flag)==HIGH){
+    
+    bitshift(11);
+    if(spibit==1){digitalWrite(bit1,HIGH);}
+    bitshift(10);
+    if(spibit==1){digitalWrite(bit2,HIGH);}
+    bitshift(9);
+    if(spibit==1){digitalWrite(bit3,HIGH);}
+    bitshift(8);
+    if(spibit==1){digitalWrite(bit4,HIGH);}
+    bitshift(7);
+    if(spibit==1){digitalWrite(bit5,HIGH);}
+    bitshift(6);
+    if(spibit==1){digitalWrite(bit6,HIGH);}
+    bitshift(5);
+    if(spibit==1){digitalWrite(bit7,HIGH);}
+    bitshift(4);
+    if(spibit==1){digitalWrite(bit8,HIGH);}
+    bitshift(3);
+    if(spibit==1){digitalWrite(bit9,HIGH);}
+    bitshift(2);
+    if(spibit==1){digitalWrite(bit10,HIGH);}
+    bitshift(1);
+    if(spibit==1){digitalWrite(bit11,HIGH);}
+    bitshift(0);
+    if(spibit==1){digitalWrite(bit12,HIGH);}
+  }
+  
+}
+
+```
+
+#### void clearspi()
+
+Between each testing phase we need to set all the pins low as when we are testing the bits we only
+ever put them high. Without this function our value being transmitted would keep increasing to 0xFFF
+and would never be able to come down from that. 
+
+```c
+
+void clearspi(){
+  digitalWrite(bit1,LOW);
+  digitalWrite(bit2,LOW);
+  digitalWrite(bit3,LOW);
+  digitalWrite(bit4,LOW);
+  digitalWrite(bit5,LOW);
+  digitalWrite(bit6,LOW);
+  digitalWrite(bit7,LOW);
+  digitalWrite(bit8,LOW);
+  digitalWrite(bit9,LOW);
+  digitalWrite(bit10,LOW);
+  digitalWrite(bit11,LOW);
+  digitalWrite(bit12,LOW);
+}
+
+```
+
+#### void bitshift(int bit2shifts)
+
+The input argument is just so it isolates the correct bit at this stage of the process. When it
+bitshifts left by the argument we make our bit that we want the MSB (which will = 1 as we are using 
+a unsigned short of 16 bits but works to the same effect as the most significant nibble is to be 0000)
+then pushed right back to the right now this interger will hold either a value of 0 or 1.
+
+```c
+
+void bitshift(int bit2shifts){
+    spibit = (spival<<bit2shifts);
+    spibit = (spibit>>11);
+}
+
+```
+
+#### void read_dynamixel()
+
+This is where all values of the dynamixels will initially be received. we multiply by one hundred so
+that we do not need to try and send floating points over the digital coms.
+
+```c
+
+void read_dynamixel(){
+  spivalf = 2.59;
+  spival = spivalf*100; 
+}
+
+```
+
+#### Full sketch
+
+```c
+
+#define bit1 2 
+#define bit2 3 
+#define bit3 4 
+#define bit4 5 
+#define bit5 6 
+#define bit6 7 
+#define bit7 8 
+#define bit8 9 
+#define bit9 10 
+#define bit10 11
+#define bit11 12
+#define bit12 13
+#define flag A0
+
+float spivalf = 0;
+unsigned short spival = 0;
+unsigned short spibit = 0;
+unsigned short bit2shifts = 0;
+
+void setup() {
+  pinMode(flag, INPUT);
+  pinMode(bit1, OUTPUT);
+  pinMode(bit2, OUTPUT);
+  pinMode(bit3, OUTPUT);
+  pinMode(bit4, OUTPUT);
+  pinMode(bit5, OUTPUT);
+  pinMode(bit6, OUTPUT);
+  pinMode(bit7, OUTPUT);
+  pinMode(bit8, OUTPUT);
+  pinMode(bit9, OUTPUT);
+  pinMode(bit10, OUTPUT);
+  pinMode(bit11, OUTPUT);
+  pinMode(bit12, OUTPUT);
+  pinMode(flag, INPUT);
+  Serial.begin(9600);
+
+}
+
+void loop() {
+  read_dynamixel();
+  sendspi();
+  clearspi();
+}
+
+void read_dynamixel(){
+  spivalf = 2.59;
+  spival = spivalf*100; 
+}
+
+void sendspi(){
+
+  while(digitalRead(flag)==HIGH){
+    
+    bitshift(11);
+    if(spibit==1){digitalWrite(bit1,HIGH);}
+    bitshift(10);
+    if(spibit==1){digitalWrite(bit2,HIGH);}
+    bitshift(9);
+    if(spibit==1){digitalWrite(bit3,HIGH);}
+    bitshift(8);
+    if(spibit==1){digitalWrite(bit4,HIGH);}
+    bitshift(7);
+    if(spibit==1){digitalWrite(bit5,HIGH);}
+    bitshift(6);
+    if(spibit==1){digitalWrite(bit6,HIGH);}
+    bitshift(5);
+    if(spibit==1){digitalWrite(bit7,HIGH);}
+    bitshift(4);
+    if(spibit==1){digitalWrite(bit8,HIGH);}
+    bitshift(3);
+    if(spibit==1){digitalWrite(bit9,HIGH);}
+    bitshift(2);
+    if(spibit==1){digitalWrite(bit10,HIGH);}
+    bitshift(1);
+    if(spibit==1){digitalWrite(bit11,HIGH);}
+    bitshift(0);
+    if(spibit==1){digitalWrite(bit12,HIGH);}
+  }
+  
+}
+
+void bitshift(int bit2shifts){
+    spibit = (spival<<bit2shifts);
+    spibit = (spibit>>11);
+}
+
+void clearspi(){
+  digitalWrite(bit1,LOW);
+  digitalWrite(bit2,LOW);
+  digitalWrite(bit3,LOW);
+  digitalWrite(bit4,LOW);
+  digitalWrite(bit5,LOW);
+  digitalWrite(bit6,LOW);
+  digitalWrite(bit7,LOW);
+  digitalWrite(bit8,LOW);
+  digitalWrite(bit9,LOW);
+  digitalWrite(bit10,LOW);
+  digitalWrite(bit11,LOW);
+  digitalWrite(bit12,LOW);
+}
+
+```
+
+### COMs code for Mega
+
+#### void readspi()
+
+We enter this function and the first thing that happens is a flag is raised which is telling the uno that we
+are ready to receive a interger value relating the Dynamixels postion in space. Then we set our interger
+to zero as it is a suming interger we do not want it to be summing from old data which is no longer reliavent
+to us. A short delay 100 ms is Required so that the uno has time to through its resistors, this is no a
+ideal way to this but as we dont have any interrupt pins on the uno we cannot do anything else other than to wait.
+The mega reads each value and adds a value to the summing interger respectivly of what the bit would have held on its own.
+Once all the bits have been decoded to a interger we can then throw our flag low to tell the uno that we no longer
+require any more data and that it can carry on doing its own thing.
+
+```c
+
+void readspi(){
+
+  digitalWrite(flag,HIGH);
+
+  spival = 0;
+  delay(0.1);
+  if(digitalRead(bit1)==true){spival=spival+1;}
+  if(digitalRead(bit2)==true){spival=spival+2;}
+  if(digitalRead(bit3)==true){spival=spival+4;}
+  if(digitalRead(bit4)==true){spival=spival+8;}
+  if(digitalRead(bit5)==true){spival=spival+16;}
+  if(digitalRead(bit6)==true){spival=spival+32;}
+  if(digitalRead(bit7)==true){spival=spival+64;}
+  if(digitalRead(bit8)==true){spival=spival+128;}
+  if(digitalRead(bit9)==true){spival=spival+256;}
+  if(digitalRead(bit10)==true){spival=spival+512;}
+  if(digitalRead(bit11)==true){spival=spival+1024;}
+  if(digitalRead(bit12)==true){spival=spival+2048;}
+  
+  digitalWrite(flag,LOW);
+ 
+}
+
+```
+
+#### void spi()
+
+This holds everthing for COMS on the side of the mega its like a main function for only the digital coms
+on the side of the mega. It will take a value as described above then assign to a floating point data type
+Then divide by 100 to get our true value.
+
+```c
+
+void spi() {
+  readspi();
+  spivalf = spival;
+  spivalf/=100;
+  if(spivalf>0)
+    Serial.println(spivalf);
+}
+
+```
+
+#### Full sketch
+
+```c
+
+#define bit1 53
+#define bit2 52
+#define bit3 51 
+#define bit4 50 
+#define bit5 49 
+#define bit6 48 
+#define bit7 47 
+#define bit8 46 
+#define bit9 45 
+#define bit10 44
+#define bit11 43
+#define bit12 42
+#define flag 41
+
+unsigned short decode1 = 0;
+unsigned short decode2 = 0;
+unsigned short decode3 = 0;
+unsigned short i = 1;
+unsigned short spival = 0;
+float spivalf = 0;
+
+void setup() {
+  Serial.begin(115200);
+  while (!Serial){;} //wait for serial port to connect
+  pinMode(bit1, INPUT);
+  pinMode(bit2, INPUT);
+  pinMode(bit3, INPUT);
+  pinMode(bit4, INPUT);
+  pinMode(bit5, INPUT);
+  pinMode(bit6, INPUT);
+  pinMode(bit7, INPUT);
+  pinMode(bit8, INPUT);
+  pinMode(bit9, INPUT);
+  pinMode(bit10, INPUT);
+  pinMode(bit11, INPUT);
+  pinMode(bit12, INPUT);
+  pinMode(flag, OUTPUT);
+}
+
+void loop() {
+
+  void spi()
+
+}
+
+void readspi(){
+
+  digitalWrite(flag,HIGH);
+  spival = 0;
+  delay(0.1);
+  if(digitalRead(bit1)==true){spival=spival+1;}
+  if(digitalRead(bit2)==true){spival=spival+2;}
+  if(digitalRead(bit3)==true){spival=spival+4;}
+  if(digitalRead(bit4)==true){spival=spival+8;}
+  if(digitalRead(bit5)==true){spival=spival+16;}
+  if(digitalRead(bit6)==true){spival=spival+32;}
+  if(digitalRead(bit7)==true){spival=spival+64;}
+  if(digitalRead(bit8)==true){spival=spival+128;}
+  if(digitalRead(bit9)==true){spival=spival+256;}
+  if(digitalRead(bit10)==true){spival=spival+512;}
+  if(digitalRead(bit11)==true){spival=spival+1024;}
+  if(digitalRead(bit12)==true){spival=spival+2048;}
+  
+  digitalWrite(flag,LOW);
+ 
+}
+
+void spi() {
+  readspi();
+  spivalf = spival;
+  spivalf/=100;
+  if(spivalf>0)
+    Serial.println(spivalf);
+}
+
+```
