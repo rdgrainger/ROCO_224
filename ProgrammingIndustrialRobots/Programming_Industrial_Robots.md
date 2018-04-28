@@ -461,7 +461,7 @@ This approach worked to a certain degree. The blocks would move with the base of
 
 ### *Results*
 
-After this, we all decided to start from scratch and remove the foam layer from the simulation and moving the board closer to the base of the RV-2AJ. We refrained from using collision physics and opened a fresh template of our enviroment. To our amazement, we found that there no longer was an issue with the reach of the arm. It could now reach all four corners of the base. We then proceeded to set the positions of the arm to meet the challenge of the task. After we had finished setting the positions, we simulated it to make sure that we met all the conditions. 
+We all decided to start from scratch and remove the foam layer from the simulation and moving the board closer to the base of the RV-2AJ. We refrained from using collision physics and opened a fresh template of our enviroment. To our amazement, we found that there no longer was an issue with the reach of the arm. It could now reach all four corners of the base. We then proceeded to set the positions of the arm to meet the challenge of the task. After we had finished setting the positions, we simulated it to make sure that we met all the conditions. 
 
 The next step was to make sure the blocks were not touching and the gripper was not being obstructed in any way. This is quite difficult to observe by eye, so we decided to include collision detectors into our simulation. Straight away we discovered that the gripper was being obstructed as the detectors turn to objects that are colliding yellow and stop the simulation. 
 
