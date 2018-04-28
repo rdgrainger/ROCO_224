@@ -3,7 +3,7 @@
 
 #### *ROSSUMOVI ROBOTI*
 
-* Faisal FAZAL-Al-REHMAN
+* Faisal FAZAL-UR-REHMAN
 * Jack GELL
 * Robert GRAINGER
 * Spencer PERDOMO-DAVIES
