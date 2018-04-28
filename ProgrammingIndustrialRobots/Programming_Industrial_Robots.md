@@ -254,6 +254,8 @@ https://mega.nz/#!yeAlXQAD!9WT7682P0vOglwi2xwGGpro0vAdTxhgiVgoNCQij1Kc
 
 Before we learned how to simulate the robot arm using Visual Components, the first thing we needed to accomplish as a team was to learn how to manually use the Mitsubishi arm with the teach pendant and program it using Melpha for our individual driving tests.
 
+
+
 ```Final Melpha Code for building a 4 block tower```
 
 
@@ -423,7 +425,21 @@ END (End program)
 
 ```
 
+## *Visual Components*
 
+The next step was to simulate our arm using Visual components.
+
+This part of the process was a little tricky, as in earlier years, 3D automate was used so part of the challenge was learning how to navigate around Visual Components as this is a newly acquired program and not a lot of people had used it before.
+
+However, with the help and guidance from Jake we were able to make sense of the program.
+
+First thing we did was open up the template file which included the RV-2AJ model and virtual Lego blocks and started to configure the positions. We opted to use initial state i1 and final state f1. 
+
+<img src=https://github.com/slperdomo-davies/ROCO_224/blob/master/images/IntialState_1.JPG alt="I1"/>
+
+<img src=https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Final%20State_1.JPG alt="F1"/>
+
+There were 10 states to choose from. The i1/f1 configuration was chosen at random as there was no real advantage between the states, as we were to find out at a later stage.
 
 Describe briefly problems encountered
 
