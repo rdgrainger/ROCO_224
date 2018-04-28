@@ -191,7 +191,7 @@ The industrial arm that we have been using is the RV-2AJ. The main reason that w
 
 The software that that we will be using, for the task previously mentioned, is Visual Components Premium 4.0 (previously 3D Automate).
 
-This is a manufacturing simulation package that enables us to 'virtualize'a factory enviroment. The software allows us to import objects, such as the Mitubishi robot arm and various other components, to test a program safely and efficiently with a 3D simulation before implementing it in a real world enviroment. 
+This is a manufacturing simulation package that enables us to 'virtualize' a factory enviroment. The software allows us to import objects, such as the Mitubishi robot arm and various other components, to test a program safely and efficiently with a 3D simulation before implementing it in a real world enviroment. 
 
 https://www.visualcomponents.com/
 
@@ -445,18 +445,17 @@ First thing we did was open up the template file which included the RV-2AJ model
 
 There were 10 states to choose from. The i1/f1 configuration was chosen at random as there was no real advantage between the states, as we were to find out at a later stage.
 
-We set up our enviroment to match the initial states of the blocks, seen in the pictures above, by first selecting the Model tab in visual components and then moving all the blocks is that configuraion ready for simulation.
+We set up our enviroment to match the initial states of the blocks, seen in the pictures above, by first selecting the Model tab in visual components and then moving all the blocks into that configuraion ready for simulation.
 
-We did originally create an extra piece of geometry to act as the foam support to replicate our real world base for the Lego blocks with a height of 32mm.
-
-But this became problematic as we encountered an issue with the arms reach and the end effector could not properly gravitate towards the corners of the board. The reach of the arm appeared to be inhibited within certain parameters as seen from the screen shots below...
-
+Originally we had created an extra piece of geometry to act as the foam support to replicate our real world base for the Lego blocks with a height of 32mm. However, this became problematic and we encountered an issue with the arms reach. The end effector could not properly gravitate towards the corners of the board. The reach of the arm appeared to be inhibited within certain parameters as seen from the screen shots below...
 
 <img src=https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Max_dist_Yneg.JPG alt="Max Distance"/>
 
 <img src=https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Max_dist_Ypos.JPG alt="Max Distance"/>
 
-At first, we thought this to be part of the challenge and tried other state configurations from the 10 provided realising that there was no advantage to which state we picked and reverted back to our original I1 block configuration. We then proceeded to move the board into a reachable position using the gripper before picking and placing the blocks. However, this affected the functionality of the gripper. After reading and watching various tutorials from visualcomponents.com and solicad.com  we had a good understanding as to how the signal functions worked for the gripper, this is achieved by selecting the gripper/end effector and setting the signal for the gripper tool to a value of 1 and selecting it to be true or false which will emulate the gripper opening and closing. We then adjusted all the geometry, excluding the arm itself, to have physical properties and make them into collision objects so that the blocks and the board could interact with each other when they collide. 
+At first, we thought this to be part of the challenge and tried other state configurations from the 10 provided. Realising that there was no advantage to which state we picked, we reverted back to our original I1 block configuration. We then proceeded to move the board into a reachable position using the gripper before picking and placing the blocks. Unfortunately, this affected the functionality of the gripper. 
+
+After reading and watching various tutorials from visualcomponents.com and solicad.com  we had a good understanding as to how the signal functions worked for the gripper. This is achieved by selecting the gripper/end effector and setting the signal for the gripper tool to a value of 1 and selecting it to be true or false which will emulate the gripper opening and closing. We then adjusted all the geometry, excluding the arm itself, to have physical properties and made them into collision objects so that the blocks and the board could interact with each other when they collide. 
 
 This approach worked to a certain degree. The blocks would move with the base of the board when the end effector moved it into position. However, we found that the gripper would not release the blocks as it did before. So after a lot of online research we found that this was not supposed to happen and should have worked. Our conclusion to this problem was that there may be an error with our installed version of Visual Components.
 
