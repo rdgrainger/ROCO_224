@@ -24,13 +24,42 @@ Design and control of manipulators (approximately 3000 words)
 
 ## *Introduction*
 
+The Design and Control of Manipulators is one section the roco224 coursework, alongside ‘Programming Industrial Robots’ It consists of a student-driven group design project, where the goal is to fulfil a chosen task related to the field of robotic manipulators. Our group is named ‘Rossumovi Roboti’ and consists of four members:
+
+Spencer Perdomo-Davies
+
+Robert Grainger
+
+Jack Gell
+
+Faisal Fazal-Ur-Rehman
+
+There are 8 project challenges to choose from, though the group could design a new challenge if desired. After some discussion, our group has settled on challenge 4 – The Redundant Freedom Arm. However, due to our large group size we have also decided to incorporate elements of 2 – Pick and Place. This will allow us to allocate a suitable quantity of work amongst ourselves.
+
+
 ### Description of hardware 
 
 ### Description of task
 
+Our manipulator will consist of two segments. 
+
+Section A – the end effector, a claw to grip and position objects. 
+
+Section B – the redundant arm, a series of RX-28 servos to showcase redundancy and position the end effector.
+
+We therefore have two main features to showcase – the redundancy and the ability to pick and object up. The idea is to have the arm manoeuvre into an enclosed area or around an obstacle. The claw will pick up an object, and then section B of the arm will move whilst keeping the end effector in place, demonstrating redundancy 
+
 ### An overview of your approach to the problem
 
 ## *Design Process*
+
+Our design process began with sketching and discussing ideas for ‘section B’ of the arm. We decided early on to have the servos attached together with short brackets rather than limb-like links. Our reasoning was to reduce weight, length and overall complexity. With a shorter arm weight and length, the servos will experience less force and can operate more efficiently.
+
+Once we had a general idea of section B, we split the group in two – a pair working on section A and another to continue section B.
+
+For section A, the end effector, we investigated different claw designs, sketching these ideas on paper. Once we had a design we felt was feasible, we created parts in fusion 360 and made an assembly of these parts to model the claw as one unit.
+The end effector was to include a 9g servo and the claw would be 3D printed as separate parts then assembled.
+
 
 Since the arm has 8 servos, the idea behind the design was to keep it as light as possible. We decided to directly attach each servo on to the previous one without any links between them except for one link that goes after the shoulder joint. After we had a rough idea of our design, the first thing we did was to make sure that the RX-28 servos (especially the servo that will need maximum ammout of torque) will be able to deliver the required torque for the design, for this we derived the moment formulas for our design.
 
@@ -43,6 +72,12 @@ stress. The second page account for when not at 90 degrees.
 _|----------------------------------------------------|_
 
 ### What design iterations have you gone through?
+
+End Effector Design Iterations:
+Sliding gripper model – 
+
+*Picture*
+
 
 ### Who worked on what and when?
 
