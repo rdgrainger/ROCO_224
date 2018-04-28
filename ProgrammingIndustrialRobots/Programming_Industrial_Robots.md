@@ -425,11 +425,12 @@ END (End program)
 
 ```
 
+
 ## *Visual Components*
 
 The next step was to simulate our arm using Visual components.
 
-This part of the process was a little tricky, as in earlier years, 3D automate was used so part of the challenge was learning how to navigate around Visual Components as this is a newly acquired program and not a lot of people had used it before.
+This part of the process was a little tricky, as in earlier years, 3D automate was used, so part of the challenge was learning how to navigate around Visual Components as this is a newly acquired program and not a lot of people had used it before.
 
 However, with the help and guidance from Jake we were able to make sense of the program.
 
@@ -441,23 +442,45 @@ First thing we did was open up the template file which included the RV-2AJ model
 
 There were 10 states to choose from. The i1/f1 configuration was chosen at random as there was no real advantage between the states, as we were to find out at a later stage.
 
-Describe briefly problems encountered
+We set up our enviroment to match the initial states of the blocks, seen in the pictures above, by first selecting the Model tab in visual components and then moving all the blocks is that configuraion ready for simulation.
 
-Describe briefly lessons learned
+We did originally create an extra piece of geometry to act as the foam support to replicate our real world base for the Lego blocks with a height of 32mm.
+
+But this became problematic as we encountered an issue with the arms reach and the end effector could not properly gravitate towards the corners of the board. The reach of the arm appeared to be inhibited within certain parameters as seen from the screen shots below...
+
+
+<img src=https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Max_dist_Yneg.JPG alt="Max Distance"/>
+
+<img src=https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Max_dist_Ypos.JPG alt="Max Distance"/>
+
+At first, we thought this to be part of the challenge and tried other state configurations from the 10 provided realising that there was no advantage to which state we picked and reverted back to our original I1 block configuration. We then proceeded to move the board into a reachable position using the gripper before picking and placing the blocks. However, this affected the functionality of the gripper. After reading and watching various tutorials from visualcomponents.com and solicad.com  we had a good understanding as to how the signal functions worked for the gripper, this is achieved by selecting the gripper/end effector and setting the signal for the gripper tool to a value of 1 and selecting it to be true or false which will emulate the gripper opening and closing. We then adjusted all the geometry, excluding the arm itself, to have physical properties and make them into collision objects so that the blocks and the board could interact with each other when they collide. 
+
+This approach worked to a certain degree. The blocks would move with the base of the board when the end effector moved it into position. However, we found that the gripper would not release the blocks as it did before. So after a lot of online research we found that this was not supposed to happen and should have worked. Our conclusion to this problem was that there may be an error with our installed version of Visual Components.
 
 ## *Results*
 
-Show how well your solution worked
+After this, we all decided to start from scratch and remove the foam layer from the simulation and moving the board closer to the base of the RV-2AJ. We refrained from using collision physics and opened a fresh template of our enviroment. To our amazement, we found that there no longer was an issue with the reach of the arm. It could now reach all four corners of the base. We then proceeded to set the positions of the arm to meet the challenge of the task. After we had finished setting the positions, we simulated it to make sure that we met all the conditions. 
 
-Show any errors in executing the task
+The next step was to make sure the blocks were not touching and the gripper was not being obstructed in any way. This is quite difficult to observe by eye, so we decided to include collision detectors into our simulation. Straight away we discovered that the gripper was being obstructed as the detectors turn to objects that are colliding yellow and stop the simulation. 
 
-Include figures with images/drawings etc
+<img src=https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Collision%20detectors.JPG alt="Collision Detectors"/>
+
+Luckily for us,this was a lot easier to amend than originally thought. We simply adjusted and fine tuned the positions by using the touch up function, which is an option when selecting our original arm positions.
+
+As you can see, in the video below, the simulation works perfectly. However, we learned that we need to go through the task in a certain sequence of steps in order for the simulation to work properly, as stated earlier, making sure all the positions and signals are set and configured before implementing the collision detectors. We also needed to completely disregard the instructions for 3d automate due to the interface being completley different.
+
+
+### Final Simulation Of The Task
+
+After we were happy with our simulation we exported it out as an .AVI file which you can see in the link below...
+
+Video here ---->
 
 ## *Conclusion*
 
-Briefly conclude this part of the 
-coursework
+Although we had initial problems with Visual components, we were finally able to create a smooth simulation for the task.
 
+The simulation itself is very useful if one wants to create, visualise and demonstrate a concept for a particular task quickly and safetly. However, there is always a need, in our opinion, to physically test a robot and the code in a real world enviroment. This is due to there being challenges that cannot always be picked up on the simulation i.e friction, weight of objects etc... The simulation is still an important tool if used as a template as it increases your time efficency when setting up an enviroment for any given task and implementing any "online line programming". So in short, we found that in order to achieve any task of this nature it is more effective to use a strategy of incoprporating both methods to compliment each other making best use of the robot arm.
 
 ### *References*
 
