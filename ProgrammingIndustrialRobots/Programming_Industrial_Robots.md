@@ -1,11 +1,16 @@
 
 ## ROCO224 Introduction to Robotics
 
+#### *ROSSUMOVI ROBOTI*
+
+* Faisal FAZAL-Al-REHMAN
+* Jack GELL
+* Robert GRAINGER
+* Spencer PERDOMO-DAVIES
+
 ## *Programming Industrial Robots*
 
-----------------Programming industrial robots(approximately 1000 words)------------------
-
-## *Introduction*
+### *Introduction*
 
 Our task is to simulate a physical robot task using the 3D Automate Visual Components software.
 
@@ -13,7 +18,7 @@ This will be achieved by using a robot arm to move 2x2 blocks, included in our L
 
 
 
--------------------------Description of robot--------------------------------------------
+### *Mitsubishi RV-2AJ and RV-SD*
 
 The industrial robots that we are using will be from the Mitsubishi Industrial Robots RV-SD and 2AJ Series.
 
@@ -182,7 +187,7 @@ The industrial arm that we have been using is the RV-2AJ. The main reason that w
 <img src=https://github.com/slperdomo-davies/ROCO_224/blob/master/images/rv2.jpg alt="RV-2AJ Model"/>
 
 
----------------------------------------------Description of software used---------------------------------
+### *Software*
 
 The software that that we will be using, for the task previously mentioned, is Visual Components Premium 4.0 (previously 3D Automate).
 
@@ -190,16 +195,11 @@ This is a manufacturing simulation package that enables us to 'virtualize'a fact
 
 https://www.visualcomponents.com/
 
-## *Relevance*
-
-Brief comparison of simulated and real robot
-
+### *Relevance*
 
 The simulation lets us recreate a real world task relatively quickly, moving the arm and setting key positions in order to visualise our intended objectives and detect pitfalls or unforseen problems safely before initiating our routine in a real world enviroment. This method is known as Off-Line programming.This can all be done with one person with relative ease. However, we do need to implement simulated dynamics and physics such as collision detectors etc.. in order to maintain as much accuracy as possible. This can be problematic when using variables such as friction and can cause our simulated routine to behave differently to what was intended when using the real robot.
 
 When using the the real robot manually, known as online-Programming, we have to approach with care, which can take longer to set up and organise. This is due to human interaction with the Robot. When setting positions using the teach pendent, we need to be very aware of the enviroment surrounding the robot so we do not put anyone in danger and avoid accidents when programming it to achieve the tasks at hand. This has to be done with a minimum of two people and can never be done alone. However, when everything is prepared we found that we can get better and more accurate results using the robot in the real world as we can adjust movements in regards to physical varibles such as friction through trial and error which we can't necessarilly do with the simulation.  
-
-Brief comparison with other robot simulation software
 
 Below is a list of other similar simulation OLP (Off-line Programming) software used ....
 
@@ -250,9 +250,10 @@ Linked template code for mitsubishi arm.
 
 https://mega.nz/#!yeAlXQAD!9WT7682P0vOglwi2xwGGpro0vAdTxhgiVgoNCQij1Kc
 
-* Describe how you worked as a team to solve the task
 
 Before we learned how to simulate the robot arm using Visual Components, the first thing we needed to accomplish as a team was to learn how to manually use the Mitsubishi arm with the teach pendant and program it using Melpha for our individual driving tests.
+
+We all took it in turns to manually move the arm into varying positions, create positions using the teach pendant, write code and we always had one person in charge of safety when we were using the arm.
 
 
 
@@ -424,9 +425,11 @@ SERVO OFF (Turns servos off)
 END (End program)
 
 ```
+Insert Video link here --->
 
 
-## *Visual Components*
+
+### *Visual Components*
 
 The next step was to simulate our arm using Visual components.
 
@@ -457,7 +460,7 @@ At first, we thought this to be part of the challenge and tried other state conf
 
 This approach worked to a certain degree. The blocks would move with the base of the board when the end effector moved it into position. However, we found that the gripper would not release the blocks as it did before. So after a lot of online research we found that this was not supposed to happen and should have worked. Our conclusion to this problem was that there may be an error with our installed version of Visual Components.
 
-## *Results*
+### *Results*
 
 After this, we all decided to start from scratch and remove the foam layer from the simulation and moving the board closer to the base of the RV-2AJ. We refrained from using collision physics and opened a fresh template of our enviroment. To our amazement, we found that there no longer was an issue with the reach of the arm. It could now reach all four corners of the base. We then proceeded to set the positions of the arm to meet the challenge of the task. After we had finished setting the positions, we simulated it to make sure that we met all the conditions. 
 
@@ -476,13 +479,13 @@ After we were happy with our simulation we exported it out as an .AVI file which
 
 Video here ---->
 
-## *Conclusion*
+### *Conclusion*
 
 Although we had initial problems with Visual components, we were finally able to create a smooth simulation for the task.
 
 The simulation itself is very useful if one wants to create, visualise and demonstrate a concept for a particular task quickly and safetly. However, there is always a need, in our opinion, to physically test a robot and the code in a real world enviroment. This is due to there being challenges that cannot always be picked up on the simulation i.e friction, weight of objects etc... The simulation is still an important tool if used as a template as it increases your time efficency when setting up an enviroment for any given task and implementing any "online line programming". So in short, we found that in order to achieve any task of this nature it is more effective to use a strategy of incoprporating both methods to compliment each other making best use of the robot arm.
 
-### *References*
+#### *References*
 
 http://www.mitsubishirobots.com
 https://www.delfoi.com
