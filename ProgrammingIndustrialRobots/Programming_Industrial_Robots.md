@@ -425,7 +425,8 @@ SERVO OFF (Turns servos off)
 END (End program)
 
 ```
-Insert Video link here --->
+
+[!](https://www.youtube.com/watch?v=bEZeHT-B7rM)
 
 
 
@@ -476,7 +477,7 @@ As you can see, in the video below, the simulation works perfectly. However, we 
 
 After we were happy with our simulation we exported it out as an .AVI file which you can see in the link below...
 
-Video here ---->
+[!](https://www.youtube.com/watch?v=qKohdm0BTBY)
 
 ### *Conclusion*
 
