@@ -426,7 +426,7 @@ END (End program)
 
 ```
 
-[Test Drive Video][(https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Final%50_%50sim.png?raw=true)(https://youtu.be/qKohdm0BTBY)]
+[Test Drive Video](https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Final_sim.png?raw=true)(https://youtu.be/qKohdm0BTBY)]
 
 
 
