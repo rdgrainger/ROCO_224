@@ -426,9 +426,11 @@ END (End program)
 
 ```
 
-[![](https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Final_sim.png?raw=true)](https://www.youtube.com/watch?v=bEZeHT-B7rM)
+[![](https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Final%50_%50sim.png?raw=true)](https://youtu.be/qKohdm0BTBY)
 
+[![](https://github.com/Faisal-f-rehman/pics.vids/blob/master/Motor/2nd%20motor/Uneven%20shaft%20youtube%20snap.png
 
+https://youtu.be/qKohdm0BTBY
 
 ### *Visual Components*
 
