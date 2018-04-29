@@ -426,7 +426,7 @@ END (End program)
 
 ```
 
-[!](https://www.youtube.com/watch?v=bEZeHT-B7rM)
+[![](https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Final_sim.png?raw=true)](https://www.youtube.com/watch?v=bEZeHT-B7rM)
 
 
 
