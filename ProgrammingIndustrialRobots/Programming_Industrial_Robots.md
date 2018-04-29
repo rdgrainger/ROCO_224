@@ -425,8 +425,9 @@ SERVO OFF (Turns servos off)
 END (End program)
 
 ```
+Click on Picture below to see Video...
 
-[![](https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Driving_test.PNG?raw=true)](https://www.youtube.com/embed/qKohdm0BTBY)
+[![](https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Driving_test.PNG?raw=true)](https://www.youtube.com/watch?v=bEZeHT-B7rM)
 
 
 
@@ -478,7 +479,9 @@ As you can see, in the video below, the simulation works perfectly. However, we 
 
 After we were happy with our simulation we exported it out as an .AVI file which you can see in the link below...
 
-[![](https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Final_sim.png?raw=true)](https://www.youtube.com/watch?v=qKohdm0BTBY)
+Please click on the following picture for the video...
+
+[![](https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Final_sim.PNG?raw=true)](https://www.youtube.com/watch?v=qKohdm0BTBY)
 
 
 
