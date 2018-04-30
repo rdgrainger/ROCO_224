@@ -78,6 +78,10 @@ Sliding gripper model –
 
 ![Sliding Gripper](https://github.com/rdgrainger/ROCO_224/blob/master/images/Manipulator%20-%20Sliding%20Claw%20design.jpg)
 
+Early Arm design - 
+
+![Arm ideas](https://github.com/rdgrainger/ROCO_224/blob/master/images/Manipulator%20-%20Early%20Arm%20designs.jpg)
+
 
 ### Who worked on what and when?
 
