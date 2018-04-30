@@ -76,7 +76,7 @@ _|----------------------------------------------------|_
 End Effector Design Iterations:
 Sliding gripper model – 
 
-*Picture*
+![Sliding Gripper](https://github.com/rdgrainger/ROCO_224/blob/master/images/Manipulator%20-%20Sliding%20Claw%20design.jpg)
 
 
 ### Who worked on what and when?
