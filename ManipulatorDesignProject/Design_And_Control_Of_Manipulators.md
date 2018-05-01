@@ -73,7 +73,7 @@ _|----------------------------------------------------|_
 
 ### What design iterations have you gone through?
 
-End Effector Design Iterations:
+End Effector Design Iterations (very rough ideas):
 Sliding gripper model – 
 
 ![Sliding Gripper](https://github.com/rdgrainger/ROCO_224/blob/master/images/Manipulator%20-%20Sliding%20Claw%20design.jpg)
@@ -81,6 +81,11 @@ Sliding gripper model –
 Early Arm design - 
 
 ![Arm ideas](https://github.com/rdgrainger/ROCO_224/blob/master/images/Manipulator%20-%20Early%20Arm%20designs.jpg)
+
+Spur gear design -  The right hand drawing is the basic principle we decided to take forward to the real design. A 9g servo will rotate one cog and thus operate one side of the claw. Another cog has interlocking teeth with the first and so will also spin, rotating the second claw part.
+
+![2 gear desgin] (https://github.com/rdgrainger/ROCO_224/blob/master/images/Manipulator%20-%20Spur%20Gear%20Claw%20design.jpg)
+
 
 
 ### Who worked on what and when?
