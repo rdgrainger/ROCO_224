@@ -109,6 +109,23 @@ The end effector claw is operated by a 9 gram servo. This has to be connected to
 
 ### Be brief, include support material in appendices, if need be
 
+#### Part A - End Effector
+
+The end-effector for the redundant arm is a flat - edged gripper which is to be operated by a servo. The user will be able to control this servo from the serial terminal (created using program PuTTY, interfaced with the arduino) and information will be fed back on the angle and the state of the gripper.
+
+Printing
+This End-effector is to be 3D printed from PLA for the following reasons.
+PLA is NOT harmful to the environment.
+This end-effector does not need the added strength or higher melting point advantages that ABS offers.
+PLA is more aesthetically pleasing.
+
+The only advantage we can see for having a ABS print is that the specific gravity is lower than PLA.
+
+
+#### Part B - Redundant arm
+
+
+
 					Rough workings for moments:  
 <img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20drawing%20at%200%20degrees%20redundant.jpg?raw=true" height="30%" width="30%"/><img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20calc%200%20degrees%20redundant.jpg?raw=true" height="30%" width="30%"/><img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20about%20servo%20B%20at%2090%20degrees%20redundant.jpg?raw=true" height="35%" width="35%"/>
 
