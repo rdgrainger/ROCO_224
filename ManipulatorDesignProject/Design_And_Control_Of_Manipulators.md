@@ -120,7 +120,7 @@ This end-effector does not need the added strength or higher melting point advan
 PLA is more aesthetically pleasing.
 
 The only advantage we can see for having a ABS print is that the specific gravity is lower than PLA.
-
+![PLA vs ABS](https://github.com/rdgrainger/ROCO_224/blob/master/images/specific%20gravity.jpg)
 
 #### Part B - Redundant arm
 
