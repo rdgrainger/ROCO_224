@@ -133,8 +133,7 @@ This is the End-effector portion of of the terminal is shown below and is kept t
 
 ![Terminal window](https://github.com/rdgrainger/ROCO_224/blob/master/images/Terminal%20window.jpg)
 
-Design
-We wanted our end-effector to work abit like a pincer but not exactly, we have chosen this style of design so that out gripper can reach forward and grab onto a object. With the design shown below we can lay a good amount of surface area on the object but still move in a pincer like fasion. Part of the gripper is hollowed out to save on weight and it also looks nicer, another way to save weight was not to encase the servo entirely although that was the original idea i realised that it was pointless and shorted it down.
+Part of the gripper is hollowed out to save on weight. The grippers have a long flat edge to allow the two to close and not miss the object between.
 
 ![Full Assembly](https://github.com/rdgrainger/ROCO_224/blob/master/images/Full%20claw.jpg)
 
