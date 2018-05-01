@@ -136,21 +136,27 @@ This is the End-effector portion of of the terminal is shown below and is kept t
 Design
 We wanted our end-effector to work abit like a pincer but not exactly, we have chosen this style of design so that out gripper can reach forward and grab onto a object. With the design shown below we can lay a good amount of surface area on the object but still move in a pincer like fasion. Part of the gripper is hollowed out to save on weight and it also looks nicer, another way to save weight was not to encase the servo entirely although that was the original idea i realised that it was pointless and shorted it down.
 
-'image'
+![Full Assembly](https://github.com/rdgrainger/ROCO_224/blob/master/images/Full%20claw.jpg)
 
-'image' 
+![Full Assembly - other view](https://github.com/rdgrainger/ROCO_224/blob/master/images/Full%20claw%20reverse.jpg)
 
 As seen here one servo operate both of the gripper by using cogs. This ensures that both the arms are in mirror image with each other and saves weight of not have an extra servo, and the weight required from PLA to house another servo. 
 
-'alt text' 
+![Top Down view](https://github.com/rdgrainger/ROCO_224/blob/master/images/Full%20claw%20top-down.jpg)
 
 By looking closely there are holes so that the servo can be screwed into place. 
 
-'alt text'
+![Underside](https://github.com/rdgrainger/ROCO_224/blob/master/images/Full%20claw%20underside.jpg)
 
 Individual components
 
-'7 images'
+![Basic link](https://github.com/rdgrainger/ROCO_224/blob/master/images/End%20effector%20Bracket.jpg)
+![Servo holder](https://github.com/rdgrainger/ROCO_224/blob/master/images/Servo%20holster%20for%20end%20effector.jpg)
+![Servo holder reverse](https://github.com/rdgrainger/ROCO_224/blob/master/images/servo%20holster%20reverse.jpg)
+![Gripper view](https://github.com/rdgrainger/ROCO_224/blob/master/images/claw%20-%20first%20view.jpg)
+![Gripper reverse](https://github.com/rdgrainger/ROCO_224/blob/master/images/claw%20-%20second%20view.jpg)
+![Gear link](https://github.com/rdgrainger/ROCO_224/blob/master/images/spur%20link.jpg)
+![Gear link sketch](https://github.com/rdgrainger/ROCO_224/blob/master/images/spur%20link%20sketch.jpg)
 
 'exploded view video'
 
