@@ -84,9 +84,11 @@ Early Arm design -
 
 Spur gear design -  The right hand drawing is the basic principle we decided to take forward to the real design. A 9g servo will rotate one cog and thus operate one side of the claw. Another cog has interlocking teeth with the first and so will also spin, rotating the second claw part.
 
-![2 gear desgin] (https://github.com/rdgrainger/ROCO_224/blob/master/images/Manipulator%20-%20Spur%20Gear%20Claw%20design.jpg)
+![2 gear desgin](https://github.com/rdgrainger/ROCO_224/blob/master/images/Manipulator%20-%20Spur%20Gear%20Claw%20design.jpg)
 
+Top left - an idea on how to test redundancy by having the arm investigate through a hole. Right - An idea for a way to have 3 degrees of freedom in one segment
 
+![Experiment](https://github.com/rdgrainger/ROCO_224/blob/master/images/Manipulator%20-%20Spur%20Gear%20Claw%20design.jpg)
 
 ### Who worked on what and when?
 
