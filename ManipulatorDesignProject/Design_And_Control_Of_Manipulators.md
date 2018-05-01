@@ -94,6 +94,11 @@ Top left - an idea on how to test redundancy by having the arm investigate throu
 
 ### What problems did you encounter, and how did you solve them?
 
+Our original design for the redundant arm had 6 dynamixel servos in line. We realised an issue may arise with the second servo from the base, which would have to lift the weight of all the subsequent servos and the end effector. To account for this we decided to attach an additional servo in parallel to help spread the load of the rest of the arm. The first servo is not an issue because it is roatational asn will not have to act against the weight of the others. To further combat weight concerns, we streamlined he desgin to include very few printed parts.
+
+The end effector claw is operated by a 9 gram servo. This has to be connected to the arduino at the base of the arm with wire. The issue - these wires need to be slack enough to allow the arm joints to bend, but we also wanted to avoid loose wires that could become tangled when the arm moves. Our solution to this was to join attach these wires closely to the servos, but at joints the wire would loop slightly to aacount for the joint angle changing.
+
+
 ## *Implementation*
 
 ### Describe the final implementation of your manipulator
