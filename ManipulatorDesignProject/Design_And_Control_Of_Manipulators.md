@@ -90,6 +90,9 @@ Top left - an idea on how to test redundancy by having the arm investigate throu
 
 ![Experiment](https://github.com/rdgrainger/ROCO_224/blob/master/images/Manipulator%20-%20%20Experiment%20idea%20and%20joint%20design.jpg)
 
+One idea was to use the end effector to scan a area from left to right, then move down one space and keep on repeating to build an image of the area below, made of diffrent colour characters. Each colour pixel would represent the distance of the surface detected. Essentially this would capture an image and send it to a window in the terminal. By utilising a serial input you could let the end-effector know which pixel to move towards. This did manage to successfully work but it took a lengthy time to capture a image. It was aslo bottle necking processing speed and we decided it was far too taxing to keep it included within the code.
+
+
 ### Who worked on what and when?
 
 ### What problems did you encounter, and how did you solve them?
@@ -113,7 +116,7 @@ The end effector claw is operated by a 9 gram servo. This has to be connected to
 
 The end-effector for the redundant arm is a flat - edged gripper which is to be operated by a servo. The user will be able to control this servo from the serial terminal (created using program PuTTY, interfaced with the arduino) and information will be fed back on the angle and the state of the gripper.
 
-Printing
+##### Printing
 This End-effector is to be 3D printed from PLA for the following reasons.
 PLA is NOT harmful to the environment.
 This end-effector does not need the added strength or higher melting point advantages that ABS offers.
@@ -121,6 +124,35 @@ PLA is more aesthetically pleasing.
 
 The only advantage we can see for having a ABS print is that the specific gravity is lower than PLA.
 ![PLA vs ABS](https://github.com/rdgrainger/ROCO_224/blob/master/images/specific%20gravity.jpg)
+
+##### Control
+
+As mentioned above the end-effector will be controlled with the serial input to putty. We will be displaying a user interface using a arduino mega which will take data from the keyboard in order to control the end-effector.
+
+This is the End-effector portion of of the terminal is shown below and is kept towards the bottom left of the terminal As seen the object distance relates to the ultra sonic sensor. Rotation @ x degrees is changable using the Q and E key from the keyboard and the gripper and be opened and closed by using the A and D keys.
+
+'image'
+
+Design
+We wanted our end-effector to work abit like a pincer but not exactly, we have chosen this style of design so that out gripper can reach forward and grab onto a object. With the design shown below we can lay a good amount of surface area on the object but still move in a pincer like fasion. Part of the gripper is hollowed out to save on weight and it also looks nicer, another way to save weight was not to encase the servo entirely although that was the original idea i realised that it was pointless and shorted it down.
+
+'image'
+
+'image' 
+
+As seen here one servo operate both of the gripper by using cogs. This ensures that both the arms are in mirror image with each other and saves weight of not have an extra servo, and the weight required from PLA to house another servo. 
+
+'alt text' 
+
+By looking closely there are holes so that the servo can be screwed into place. 
+
+'alt text'
+
+Individual components
+
+'7 images'
+
+'exploded view video'
 
 #### Part B - Redundant arm
 
