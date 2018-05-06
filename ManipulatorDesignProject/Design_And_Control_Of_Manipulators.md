@@ -73,15 +73,34 @@ _|----------------------------------------------------|_
 
 ### What design iterations have you gone through?
 
-End Effector Design Iterations:
+End Effector Design Iterations (very rough ideas):
 Sliding gripper model – 
 
-*Picture*
+![Sliding Gripper](https://github.com/rdgrainger/ROCO_224/blob/master/images/Manipulator%20-%20Sliding%20Claw%20design.jpg)
+
+Early Arm design - 
+
+![Arm ideas](https://github.com/rdgrainger/ROCO_224/blob/master/images/Manipulator%20-%20Early%20Arm%20designs.jpg)
+
+Spur gear design -  The right hand drawing is the basic principle we decided to take forward to the real design. A 9g servo will rotate one cog and thus operate one side of the claw. Another cog has interlocking teeth with the first and so will also spin, rotating the second claw part.
+
+![2 gear desgin](https://github.com/rdgrainger/ROCO_224/blob/master/images/Manipulator%20-%20Spur%20Gear%20Claw%20design.jpg)
+
+Top left - an idea on how to test redundancy by having the arm investigate through a hole. Right - An idea for a way to have 3 degrees of freedom in one segment
+
+![Experiment](https://github.com/rdgrainger/ROCO_224/blob/master/images/Manipulator%20-%20%20Experiment%20idea%20and%20joint%20design.jpg)
+
+One idea was to use the end effector to scan a area from left to right, then move down one space and keep on repeating to build an image of the area below, made of diffrent colour characters. Each colour pixel would represent the distance of the surface detected. Essentially this would capture an image and send it to a window in the terminal. By utilising a serial input you could let the end-effector know which pixel to move towards. This did manage to successfully work but it took a lengthy time to capture a image. It was aslo bottle necking processing speed and we decided it was far too taxing to keep it included within the code.
 
 
 ### Who worked on what and when?
 
 ### What problems did you encounter, and how did you solve them?
+
+Our original design for the redundant arm had 6 dynamixel servos in line. We realised an issue may arise with the second servo from the base, which would have to lift the weight of all the subsequent servos and the end effector. To account for this we decided to attach an additional servo in parallel to help spread the load of the rest of the arm. The first servo is not an issue because it is roatational asn will not have to act against the weight of the others. To further combat weight concerns, we streamlined he desgin to include very few printed parts.
+
+The end effector claw is operated by a 9 gram servo. This has to be connected to the arduino at the base of the arm with wire. The issue - these wires need to be slack enough to allow the arm joints to bend, but we also wanted to avoid loose wires that could become tangled when the arm moves. Our solution to this was to join attach these wires closely to the servos, but at joints the wire would loop slightly to aacount for the joint angle changing.
+
 
 ## *Implementation*
 
@@ -92,6 +111,57 @@ Sliding gripper model –
 ### Include your solutions for kinematics, motion planning etc.
 
 ### Be brief, include support material in appendices, if need be
+
+#### Part A - End Effector
+
+The end-effector for the redundant arm is a flat - edged gripper which is to be operated by a servo. The user will be able to control this servo from the serial terminal (created using program PuTTY, interfaced with the arduino) and information will be fed back on the angle and the state of the gripper.
+
+##### Printing
+This End-effector is to be 3D printed from PLA for the following reasons.
+PLA is NOT harmful to the environment.
+This end-effector does not need the added strength or higher melting point advantages that ABS offers.
+PLA is more aesthetically pleasing.
+
+The only advantage we can see for having a ABS print is that the specific gravity is lower than PLA.
+![PLA vs ABS](https://github.com/rdgrainger/ROCO_224/blob/master/images/specific%20gravity.jpg)
+
+##### Control
+
+As mentioned above the end-effector will be controlled with the serial input to putty. We will be displaying a user interface using a arduino mega which will take data from the keyboard in order to control the end-effector.
+
+This is the End-effector portion of of the terminal is shown below and is kept towards the bottom left of the terminal As seen the object distance relates to the ultra sonic sensor. Rotation @ x degrees is changable using the Q and E key from the keyboard and the gripper and be opened and closed by using the A and D keys.
+
+![Terminal window](https://github.com/rdgrainger/ROCO_224/blob/master/images/Terminal%20window.jpg)
+
+Part of the gripper is hollowed out to save on weight. The grippers have a long flat edge to allow the two to close and not miss the object between.
+
+![Full Assembly](https://github.com/rdgrainger/ROCO_224/blob/master/images/Full%20claw.jpg)
+
+![Full Assembly - other view](https://github.com/rdgrainger/ROCO_224/blob/master/images/Full%20claw%20reverse.jpg)
+
+As seen here one servo operate both of the gripper by using cogs. This ensures that both the arms are in mirror image with each other and saves weight of not have an extra servo, and the weight required from PLA to house another servo. 
+
+![Top Down view](https://github.com/rdgrainger/ROCO_224/blob/master/images/Full%20claw%20top-down.jpg)
+
+By looking closely there are holes so that the servo can be screwed into place. 
+
+![Underside](https://github.com/rdgrainger/ROCO_224/blob/master/images/Full%20claw%20underside.jpg)
+
+Individual components
+
+![Basic link](https://github.com/rdgrainger/ROCO_224/blob/master/images/End%20effector%20Bracket.jpg)
+![Servo holder](https://github.com/rdgrainger/ROCO_224/blob/master/images/Servo%20holster%20for%20end%20effector.jpg)
+![Servo holder reverse](https://github.com/rdgrainger/ROCO_224/blob/master/images/servo%20holster%20reverse.jpg)
+![Gripper view](https://github.com/rdgrainger/ROCO_224/blob/master/images/claw%20-%20first%20view.jpg)
+![Gripper reverse](https://github.com/rdgrainger/ROCO_224/blob/master/images/claw%20-%20second%20view.jpg)
+![Gear link](https://github.com/rdgrainger/ROCO_224/blob/master/images/spur%20link.jpg)
+![Gear link sketch](https://github.com/rdgrainger/ROCO_224/blob/master/images/spur%20link%20sketch.jpg)
+
+'exploded view video'
+
+#### Part B - Redundant arm
+
+
 
 					Rough workings for moments:  
 <img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20drawing%20at%200%20degrees%20redundant.jpg?raw=true" height="30%" width="30%"/><img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20calc%200%20degrees%20redundant.jpg?raw=true" height="30%" width="30%"/><img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20about%20servo%20B%20at%2090%20degrees%20redundant.jpg?raw=true" height="35%" width="35%"/>

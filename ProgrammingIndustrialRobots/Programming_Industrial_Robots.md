@@ -1,11 +1,16 @@
 
 ## ROCO224 Introduction to Robotics
 
+#### *ROSSUMOVI ROBOTI*
+
+* Faisal FAZAL-UR-REHMAN
+* Jack GELL
+* Robert GRAINGER
+* Spencer PERDOMO-DAVIES
+
 ## *Programming Industrial Robots*
 
-----------------Programming industrial robots(approximately 1000 words)------------------
-
-## *Introduction*
+### *Introduction*
 
 Our task is to simulate a physical robot task using the 3D Automate Visual Components software.
 
@@ -13,7 +18,7 @@ This will be achieved by using a robot arm to move 2x2 blocks, included in our L
 
 
 
--------------------------Description of robot--------------------------------------------
+### *Mitsubishi RV-2AJ and RV-SD*
 
 The industrial robots that we are using will be from the Mitsubishi Industrial Robots RV-SD and 2AJ Series.
 
@@ -182,24 +187,19 @@ The industrial arm that we have been using is the RV-2AJ. The main reason that w
 <img src=https://github.com/slperdomo-davies/ROCO_224/blob/master/images/rv2.jpg alt="RV-2AJ Model"/>
 
 
----------------------------------------------Description of software used---------------------------------
+### *Software*
 
 The software that that we will be using, for the task previously mentioned, is Visual Components Premium 4.0 (previously 3D Automate).
 
-This is a manufacturing simulation package that enables us to 'virtualize'a factory enviroment. The software allows us to import objects, such as the Mitubishi robot arm and various other components, to test a program safely and efficiently with a 3D simulation before implementing it in a real world enviroment. 
+This is a manufacturing simulation package that enables us to 'virtualize' a factory enviroment. The software allows us to import objects, such as the Mitubishi robot arm and various other components, to test a program safely and efficiently with a 3D simulation before implementing it in a real world enviroment. 
 
 https://www.visualcomponents.com/
 
-## *Relevance*
-
-Brief comparison of simulated and real robot
-
+### *Relevance*
 
 The simulation lets us recreate a real world task relatively quickly, moving the arm and setting key positions in order to visualise our intended objectives and detect pitfalls or unforseen problems safely before initiating our routine in a real world enviroment. This method is known as Off-Line programming.This can all be done with one person with relative ease. However, we do need to implement simulated dynamics and physics such as collision detectors etc.. in order to maintain as much accuracy as possible. This can be problematic when using variables such as friction and can cause our simulated routine to behave differently to what was intended when using the real robot.
 
 When using the the real robot manually, known as online-Programming, we have to approach with care, which can take longer to set up and organise. This is due to human interaction with the Robot. When setting positions using the teach pendent, we need to be very aware of the enviroment surrounding the robot so we do not put anyone in danger and avoid accidents when programming it to achieve the tasks at hand. This has to be done with a minimum of two people and can never be done alone. However, when everything is prepared we found that we can get better and more accurate results using the robot in the real world as we can adjust movements in regards to physical varibles such as friction through trial and error which we can't necessarilly do with the simulation.  
-
-Brief comparison with other robot simulation software
 
 Below is a list of other similar simulation OLP (Off-line Programming) software used ....
 
@@ -250,9 +250,12 @@ Linked template code for mitsubishi arm.
 
 https://mega.nz/#!yeAlXQAD!9WT7682P0vOglwi2xwGGpro0vAdTxhgiVgoNCQij1Kc
 
-* Describe how you worked as a team to solve the task
 
 Before we learned how to simulate the robot arm using Visual Components, the first thing we needed to accomplish as a team was to learn how to manually use the Mitsubishi arm with the teach pendant and program it using Melpha for our individual driving tests.
+
+We all took it in turns to manually move the arm into varying positions, create positions using the teach pendant, write code and we always had one person in charge of safety when we were using the arm.
+
+
 
 ```Final Melpha Code for building a 4 block tower```
 
@@ -422,28 +425,73 @@ SERVO OFF (Turns servos off)
 END (End program)
 
 ```
+Click on Picture below to see Video...
+
+[![](https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Driving_test.PNG?raw=true)](https://www.youtube.com/watch?v=bEZeHT-B7rM)
 
 
 
-Describe briefly problems encountered
 
-Describe briefly lessons learned
+### *Visual Components*
 
-## *Results*
+The next step was to simulate our arm using Visual components.
 
-Show how well your solution worked
+This part of the process was a little tricky, as in earlier years, 3D automate was used, so part of the challenge was learning how to navigate around Visual Components as this is a newly acquired program and not a lot of people had used it before.
 
-Show any errors in executing the task
+However, with the help and guidance from Jake we were able to make sense of the program.
 
-Include figures with images/drawings etc
+First thing we did was open up the template file which included the RV-2AJ model and virtual Lego blocks and started to configure the positions. We opted to use initial state i1 and final state f1. 
 
-## *Conclusion*
+<img src=https://github.com/slperdomo-davies/ROCO_224/blob/master/images/IntialState_1.JPG alt="I1"/>
 
-Briefly conclude this part of the 
-coursework
+<img src=https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Final%20State_1.JPG alt="F1"/>
+
+There were 10 states to choose from. The i1/f1 configuration was chosen at random as there was no real advantage between the states, as we were to find out at a later stage.
+
+We set up our enviroment to match the initial states of the blocks, seen in the pictures above, by first selecting the Model tab in visual components and then moving all the blocks into that configuraion ready for simulation.
+
+Originally we had created an extra piece of geometry to act as the foam support to replicate our real world base for the Lego blocks with a height of 32mm. However, this became problematic and we encountered an issue with the arms reach. The end effector could not properly gravitate towards the corners of the board. The reach of the arm appeared to be inhibited within certain parameters as seen from the screen shots below...
+
+<img src=https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Max_dist_Yneg.JPG alt="Max Distance"/>
+
+<img src=https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Max_dist_Ypos.JPG alt="Max Distance"/>
+
+At first, we thought this to be part of the challenge and tried other state configurations from the 10 provided. Realising that there was no advantage to which state we picked, we reverted back to our original I1 block configuration. We then proceeded to move the board into a reachable position using the gripper before picking and placing the blocks. Unfortunately, this affected the functionality of the gripper. 
+
+After reading and watching various tutorials from visualcomponents.com and solicad.com  we had a good understanding as to how the signal functions worked for the gripper. This is achieved by selecting the gripper/end effector and setting the signal for the gripper tool to a value of 1 and selecting it to be true or false which will emulate the gripper opening and closing. We then adjusted all the geometry, excluding the arm itself, to have physical properties and made them into collision objects so that the blocks and the board could interact with each other when they collide. 
+
+This approach worked to a certain degree. The blocks would move with the base of the board when the end effector moved it into position. However, we found that the gripper would not release the blocks as it did before. So after a lot of online research we found that this was not supposed to happen and should have worked. Our conclusion to this problem was that there may be an error with our installed version of Visual Components.
+
+### *Results*
+
+We all decided to start from scratch and remove the foam layer from the simulation and moving the board closer to the base of the RV-2AJ. We refrained from using collision physics and opened a fresh template of our enviroment. To our amazement, we found that there no longer was an issue with the reach of the arm. It could now reach all four corners of the base. We then proceeded to set the positions of the arm to meet the challenge of the task. After we had finished setting the positions, we simulated it to make sure that we met all the conditions. 
+
+The next step was to make sure the blocks were not touching and the gripper was not being obstructed in any way. This is quite difficult to observe by eye, so we decided to include collision detectors into our simulation. Straight away we discovered that the gripper was being obstructed as the detectors turn to objects that are colliding yellow and stop the simulation. 
+
+<img src=https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Collision%20detectors.JPG alt="Collision Detectors"/>
+
+Luckily for us,this was a lot easier to amend than originally thought. We simply adjusted and fine tuned the positions by using the touch up function, which is an option when selecting our original arm positions.
+
+As you can see, in the video below, the simulation works perfectly. However, we learned that we need to go through the task in a certain sequence of steps in order for the simulation to work properly, as stated earlier, making sure all the positions and signals are set and configured before implementing the collision detectors. We also needed to completely disregard the instructions for 3d automate due to the interface being completley different.
 
 
-### *References*
+### Final Simulation Of The Task
+
+After we were happy with our simulation we exported it out as an .AVI file which you can see in the link below...
+
+Please click on the following picture for the video...
+
+[![](https://github.com/slperdomo-davies/ROCO_224/blob/master/images/Final_sim.PNG?raw=true)](https://www.youtube.com/watch?v=qKohdm0BTBY)
+
+
+
+### *Conclusion*
+
+Although we had initial problems with Visual components, we were finally able to create a smooth simulation for the task.
+
+The simulation itself is very useful if one wants to create, visualise and demonstrate a concept for a particular task quickly and safetly. However, there is always a need, in our opinion, to physically test a robot and the code in a real world enviroment. This is due to there being challenges that cannot always be picked up on the simulation i.e friction, weight of objects etc... The simulation is still an important tool if used as a template as it increases your time efficency when setting up an enviroment for any given task and implementing any "online line programming". So in short, we found that in order to achieve any task of this nature it is more effective to use a strategy of incoprporating both methods to compliment each other making best use of the robot arm.
+
+#### *References*
 
 http://www.mitsubishirobots.com
 https://www.delfoi.com
