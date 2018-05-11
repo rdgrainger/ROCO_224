@@ -188,6 +188,27 @@ stress. The second page accounts for when not at 90 degrees.
 
 ### Include a Method, Results, and Discussion sub-section for each experiment
 
+#### Experiment 1 - Testing Arm movement with forward kinematics
+
+##### Method
+
+We set the arm in its hanging configuration and connected the dynamixels to Matlab to test the forward kinematics.
+
+##### Results
+
+The servos rotated to move the joints in the configurations we set.
+
+##### Discussion
+
+Forward kinematics are working, however this does not showcase redundancy.
+
+
+#### Experiment 2 - Reading positions
+
+##### Method
+##### Results
+##### Discussion
+
 ## *Conclusion*
 
 ### Briefly conclude this part of the coursework
