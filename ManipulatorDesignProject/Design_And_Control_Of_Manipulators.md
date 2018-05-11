@@ -95,6 +95,9 @@ Our original design for the redundant arm had 6 dynamixel servos in line. We rea
 
 The end effector claw is operated by a 9 gram servo. This has to be connected to the arduino at the base of the arm with wire. The issue - these wires need to be slack enough to allow the arm joints to bend, but we also wanted to avoid loose wires that could become tangled when the arm moves. Our solution to this was to join attach these wires closely to the servos, but at joints the wire would loop slightly to aacount for the joint angle changing.
 
+When calaculating inverse kinematics, we discovered that our arm in its current configuration would encouter singularities. The outstretched hanging arm has a workspace singularity as it cannot move any more in the z direction (up and down). This created a singularity and the maths will stop working. Additionally, this hanging position is our arm's default position. To account for this, we have set out 'home' postion in matlab to be 5 degrees offset from this situation.
+
+Another probelem with singularities arose due to the servos being directly in line with each other. This creates a situation where certain links (any links between two servos in identical positions) are constrained in thier given axis. As an example, the z axis while the arm is hanging. To solve this we needed to offset the joints slightly. The links were modified in Fusion to have offset holes, reprinted and then replaced the previous links.
 
 ## *Implementation*
 
@@ -126,6 +129,12 @@ As mentioned above the end-effector will be controlled with the serial input to 
 This is the End-effector portion of of the terminal is shown below and is kept towards the bottom left of the terminal As seen the object distance relates to the ultra sonic sensor. Rotation @ x degrees is changable using the Q and E key from the keyboard and the gripper and be opened and closed by using the A and D keys.
 
 ![Terminal window](https://github.com/rdgrainger/ROCO_224/blob/master/images/Terminal%20window.jpg)
+
+Arduino code for control:
+
+
+
+
 
 ##### Assembly
 
@@ -196,16 +205,21 @@ We set the arm in its hanging configuration and connected the dynamixels to Matl
 
 ##### Results
 
-The servos rotated to move the joints in the configurations we set.
+The servos rotated to move the joints to the configurations we set.
 
 ##### Discussion
 
-Forward kinematics are working, however this does not showcase redundancy.
+Forward kinematics are working.
+This does not showcase redundancy because the end effector is not kept in place.
 
+'video of arm moving'
 
 #### Experiment 2 - Reading positions
 
 ##### Method
+
+Move robot to a position by hand, read value of that position. Run code to move robot to position just defined. We can arrange the robot in multiple positions while holding the end effector in place. This gives us a way to showcase redundancy.
+
 ##### Results
 ##### Discussion
 
