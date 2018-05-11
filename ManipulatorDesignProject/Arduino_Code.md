@@ -41,6 +41,8 @@ amalgumated into their main sketch.
 
 # Functions with operations and reasons explained.
 
+## First section deals with terminal code (mostly)
+
 ### void text_colour(int colour)_
 
 Function that will use the vt100 escape sequnces to change the colour of the text writing that is put onto a terminal. If you
@@ -1715,7 +1717,7 @@ The value coming through will range from 0 to 999 so that i would not have to co
 digital COM. Therefore a simply manipulation of dividing the value by 100 will send it to the real floating point value
 range of 0 to 9.99.
 
-### COMs code for uno
+### OLD COMs code for uno
 
 explained in no real order as this shall be summerized afterwards.
 
@@ -1924,7 +1926,7 @@ void clearspi(){
 
 ```
 
-### COMs code for Mega
+### OLD COMs code for Mega
 
 #### void readspi()
 
@@ -2060,5 +2062,155 @@ void spi() {
   if(spivalf>0)
     Serial.println(spivalf);
 }
+
+```
+
+#### New COMs code
+
+The code above does work as a comunication device and works alot faster that traditional I2C as there
+is one digital pin representing each bit and can be read by the master very quickly without having to 
+read each bitand raise a flag to acknowledge it is ready to send the next bit. Also as the come was
+specifically deigned for this task that generally makes it much more efficient than a more versatile/flexible
+tool from a library. Despite being much faster and did work for sending values it could not cope
+with the amount of work that we where asking of it. It took me a while to figure out that the arduino board
+could not source enough current to deal with 12 data bits and numourous flags telling which dynamixel and
+which axis each of the 12 bit values would be representing. I confimermed this by looking at with a 
+oscilliscope. Soon after this i arealied that Arduino had a built in I2C which would i did not 
+previously realise. So now we have 2 Arduino megas communicating to one another with I2C and
+each arduino talking to a PC using their com ports. one comm port will be attached to putty and the other 
+ill be dealing with ros and matlab.
+
+#### Sketch for slave (sender) device (ros and matlab)
+
+##### I2c explained
+
+A very simple sketch using the wire.h for the I2C which defines a pin for each possible
+coordinate. The mega has more than enough pins to handle this without having to make combinational
+digital pin flag which can be unreliable (very unlikey but a value could be sent before all combinational flags are
+thrown and a value will be assigned to a incorrect cooridinate). All coords are held in uint16 and kept global so 
+can be modified easily without needing to e passed as arguments nor needed to be returned from functions. The 
+I2C will only fire a value over to the master when requested triggerring a rising edge intterupt which will call
+a transmit function. Once in the function flag will be checked and depending on the flag which is raised (only
+1 flag will ever be high at once) a global variable will be called and placed into Wire.write command function.
+
+##### Ros explained
+
+#### Full sketch
+
+```c
+
+#include <Wire.h>
+
+#define x1 36
+#define y1 37
+#define z1 38
+#define x2 39
+#define y2 40
+#define z2 41
+#define x3 42
+#define y3 43
+#define z3 44
+#define x4 45
+#define y4 46
+#define z4 47
+#define x5 48
+#define y5 49
+#define z5 50
+#define x6 51
+#define y6 52
+#define z6 53
+
+unsigned short dynamixel_1x = 0;
+unsigned short dynamixel_1y = 0;
+unsigned short dynamixel_1z = 0;
+unsigned short dynamixel_2x = 0;
+unsigned short dynamixel_2y = 0;
+unsigned short dynamixel_2z = 0;
+unsigned short dynamixel_3x = 0;
+unsigned short dynamixel_3y = 0;
+unsigned short dynamixel_3z = 0;
+unsigned short dynamixel_4x = 0;
+unsigned short dynamixel_4y = 0;
+unsigned short dynamixel_4z = 0;
+unsigned short dynamixel_5x = 0;
+unsigned short dynamixel_5y = 0;
+unsigned short dynamixel_5z = 0;
+unsigned short dynamixel_6x = 0;
+unsigned short dynamixel_6y = 0;
+unsigned short dynamixel_6z = 0;
+
+void setup() {
+  Wire.begin(8);                // join i2c bus with address #8
+  Wire.onRequest(requestEvent); // register event
+  pinMode(x1, INPUT);
+  pinMode(y1, INPUT);
+  pinMode(z1, INPUT);
+  pinMode(x2, INPUT);
+  pinMode(y2, INPUT);
+  pinMode(z2, INPUT);
+  pinMode(x3, INPUT);
+  pinMode(y3, INPUT);
+  pinMode(z3, INPUT);
+  pinMode(x4, INPUT);
+  pinMode(y4, INPUT);
+  pinMode(z4, INPUT);
+  pinMode(x5, INPUT);
+  pinMode(y5, INPUT);
+  pinMode(z5, INPUT);
+  pinMode(x6, INPUT);
+  pinMode(y6, INPUT);
+  pinMode(z6, INPUT);
+}
+
+void loop() {
+  delay(100);
+}
+
+void requestEvent() {
+  if(x1==HIGH);
+    Wire.write(dynamixel_1x);
+  if(y1==HIGH);
+    Wire.write(dynamixel_1y);
+  if(z1==HIGH);
+    Wire.write(dynamixel_1z); 
+  if(x2==HIGH);
+    Wire.write(dynamixel_2x);
+  if(y2==HIGH);
+    Wire.write(dynamixel_2y);
+  if(z2==HIGH);
+    Wire.write(dynamixel_2z);
+  if(x3==HIGH);
+    Wire.write(dynamixel_3x); 
+  if(y3==HIGH);
+    Wire.write(dynamixel_3y);
+  if(z3==HIGH);
+    Wire.write(dynamixel_3z);
+  if(x4==HIGH);
+    Wire.write(dynamixel_4x);
+  if(y4==HIGH);
+    Wire.write(dynamixel_4y);
+  if(z4==HIGH);
+    Wire.write(dynamixel_4z);
+  if(x5==HIGH);
+    Wire.write(dynamixel_5x);
+  if(y5==HIGH);
+    Wire.write(dynamixel_5y);
+  if(z5==HIGH);
+    Wire.write(dynamixel_5z);
+  if(x1==HIGH);
+    Wire.write(dynamixel_6x);
+  if(y1==HIGH);
+    Wire.write(dynamixel_6y);
+  if(y1==HIGH);
+    Wire.write(dynamixel_6z);
+  if(y1==HIGH);
+}
+
+void dynamixelx1(){
+  
+  dynamixel_1x = 534;
+
+}
+
 
 ```
