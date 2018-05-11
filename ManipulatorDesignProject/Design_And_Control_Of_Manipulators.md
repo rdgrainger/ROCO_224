@@ -111,7 +111,7 @@ Report writing - Robert Grainger, Easter break and onwards.
 
 Moments - Jack Gell, before Easter, early in project.
 
-Embedded programming (Arduinos) - Jack Gell.
+Embedded programming (Arduinos) - Jack Gell, wrote master code throughout easter break, wrote slave code after easter break.
 
 Ros - Faisal Fazal-Ur-Rehman.
 
