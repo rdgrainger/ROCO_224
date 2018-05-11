@@ -111,6 +111,10 @@ Report writing - Robert Grainger, Easter break and onwards.
 
 Moments - Jack Gell, before Easter, early in project.
 
+Embedded programming (Arduinos) - Jack Gell.
+
+Ros - Faisal Fazal-Ur-Rehman.
+
 
 ### What problems did you encounter, and how did you solve them?
 
