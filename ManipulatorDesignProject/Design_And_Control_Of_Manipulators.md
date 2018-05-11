@@ -64,12 +64,6 @@ The end effector was to include a 9g servo and the claw would be 3D printed as s
 Since the arm has 8 servos, the idea behind the design was to keep it as light as possible. We decided to directly attach each servo on to the previous one without any links between them except for one link that goes after the shoulder joint. After we had a rough idea of our design, the first thing we did was to make sure that the RX-28 servos (especially the servo that will need maximum ammout of torque) will be able to deliver the required torque for the design, for this we derived the moment formulas for our design.
 
 
-_|------------ Final maths for moments ------------|_
-
-word document for torque equation at 90 degrees. how to calculate work for the servo which will be under the most
-stress. The second page account for when not at 90 degrees.
-
-_|----------------------------------------------------|_
 
 ### What design iterations have you gone through?
 
@@ -162,11 +156,19 @@ Individual components
 #### Part B - Redundant arm
 
 
+##### Moment Calculations
 
+word document for torque equation at 90 degrees. how to calculate work for the servo which will be under the most
+stress. The second page account for when not at 90 degrees.
+
+_|----------------------------------------------------|_
 					Rough workings for moments:  
 <img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20drawing%20at%200%20degrees%20redundant.jpg?raw=true" height="30%" width="30%"/><img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20calc%200%20degrees%20redundant.jpg?raw=true" height="30%" width="30%"/><img src="https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/moments%20about%20servo%20B%20at%2090%20degrees%20redundant.jpg?raw=true" height="35%" width="35%"/>
 
 <br><br><br><br>
+
+Here is a word document for torque equation at 90 degrees. It shows our calculations for the servo which will be under the most
+stress. The second page accounts for when not at 90 degrees.
 
 **Libre writer file:**
 ![Jack's Torque file](https://github.com/Faisal-f-rehman/ROCO_224/blob/master/ManipulatorDesignProject/maths/JackGell_torque%20equation_%2090degres.docx)
