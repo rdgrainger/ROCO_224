@@ -127,6 +127,8 @@ This is the End-effector portion of of the terminal is shown below and is kept t
 
 ![Terminal window](https://github.com/rdgrainger/ROCO_224/blob/master/images/Terminal%20window.jpg)
 
+##### Assembly
+
 Part of the gripper is hollowed out to save on weight. The grippers have a long flat edge to allow the two to close and not miss the object between.
 
 ![Full Assembly](https://github.com/rdgrainger/ROCO_224/blob/master/images/Full%20claw.jpg)
@@ -155,6 +157,11 @@ Individual components
 
 #### Part B - Redundant arm
 
+##### Assembly
+
+##### Kinematics
+
+##### Motion Planning
 
 ##### Moment Calculations
 
