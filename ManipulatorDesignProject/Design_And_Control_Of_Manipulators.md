@@ -39,6 +39,9 @@ There are 8 project challenges to choose from, though the group could design a n
 
 ### Description of hardware 
 
+#### Dynamixels
+
+
 ### Description of task
 
 Our manipulator will consist of two segments. 
@@ -111,7 +114,7 @@ Another probelem with singularities arose due to the servos being directly in li
 
 #### Part A - End Effector
 
-The end-effector for the redundant arm is a flat - edged gripper which is to be operated by a servo. The user will be able to control this servo from the serial terminal (created using program PuTTY, interfaced with the arduino) and information will be fed back on the angle and the state of the gripper.
+The end-effector for the redundant arm is a flat - edged gripper which is to be operated by a servo. The user will be able to control this servo from the serial terminal (created using program PuTTY, interfaced with the arduino) and information will be fed back on the angle and the state of the gripper. The End effector is attached to the bottom most servo of part B.
 
 ##### Printing
 This End-effector is to be 3D printed from PLA for the following reasons.
@@ -126,7 +129,7 @@ The only advantage we can see for having a ABS print is that the specific gravit
 
 As mentioned above the end-effector will be controlled with the serial input to putty. We will be displaying a user interface using a arduino mega which will take data from the keyboard in order to control the end-effector.
 
-This is the End-effector portion of of the terminal is shown below and is kept towards the bottom left of the terminal As seen the object distance relates to the ultra sonic sensor. Rotation @ x degrees is changable using the Q and E key from the keyboard and the gripper and be opened and closed by using the A and D keys.
+This is the End-effector portion of of the terminal is shown below and is kept towards the bottom left of the terminal As seen the object distance relates to the ultra sonic sensor. The gripper can be opened and closed by using the A and D keys. There are keys to allow the gripper to rotate using a second 9g servo, however we removed this servo from our desgin.
 
 ![Terminal window](https://github.com/rdgrainger/ROCO_224/blob/master/images/Terminal%20window.jpg)
 
@@ -172,7 +175,10 @@ Individual components
 
 ##### Motion Planning
 
+##### Structural Analysis
+
 ##### Moment Calculations
+
 
 word document for torque equation at 90 degrees. how to calculate work for the servo which will be under the most
 stress. The second page account for when not at 90 degrees.
@@ -221,6 +227,7 @@ This does not showcase redundancy because the end effector is not kept in place.
 Move robot to a position by hand, read value of that position. Run code to move robot to position just defined. We can arrange the robot in multiple positions while holding the end effector in place. This gives us a way to showcase redundancy.
 
 ##### Results
+
 ##### Discussion
 
 ## *Conclusion*
