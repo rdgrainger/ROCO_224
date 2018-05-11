@@ -92,6 +92,26 @@ One idea was to use the end effector to scan a area from left to right, then mov
 
 ### Who worked on what and when?
 
+**note- Add proper dates?**
+
+
+End Effector Design in Fusion 360 - Jack Gell and Robert Grainger, designed before Easter break, corrections made first week back.
+
+Redundant Arm in Fusion 360 - Spencer Perdomo-Davies, Robert Grainger, designed before Easter break, adjustments and animation done after.
+
+Constructing Arm - Spencer Perdomo-Davies, assembled after Easter
+
+Constructing End Effector - Robert Grainger, Jack Gell, aseembled after Easter, adjustments made
+
+Matlab, kinematics - Faisal Fazal-Ur-Rehman, Easter break and onwards
+
+Structural Analysis - Spencer Perdomo-Davies, before Easter
+
+Report writing - Robert Grainger, Easter break and onwards.
+
+Moments - Jack Gell, before Easter, early in project.
+
+
 ### What problems did you encounter, and how did you solve them?
 
 Our original design for the redundant arm had 6 dynamixel servos in line. We realised an issue may arise with the second servo from the base, which would have to lift the weight of all the subsequent servos and the end effector. To account for this we decided to attach an additional servo in parallel to help spread the load of the rest of the arm. The first servo is not an issue because it is roatational asn will not have to act against the weight of the others. To further combat weight concerns, we streamlined he desgin to include very few printed parts.
